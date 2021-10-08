@@ -1,4 +1,4 @@
-# VoIP-based Book Club PWA 
+# Interactive Media Design - Uniboard 
 
 ## GitFlow
 
