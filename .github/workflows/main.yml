@@ -12,18 +12,18 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }} 📁
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Packages
+    - name: Install Packages 📦
       run: yarn install
 
-    - name: Build page
+    - name: Build page ⚙️
       run: yarn run build
 
-    - name: Deploy to Github pages
+    - name: Deploy to Github pages 🚀
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.DEPLOY_KEY }}
