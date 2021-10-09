@@ -39,8 +39,6 @@ jobs:
         run: yarn install
       - name: 🏗️ Build main package
         run: yarn run build
-      - name: 🏗️ Build example app
-        run: yarn run build:example
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
