@@ -20,11 +20,8 @@ jobs:
     - name: yarn install
       run: |
         yarn install
-    - name: yarn test
-      run: |
-        yarn test 
-      env:
-        CI: true
+
+    # Add test command later on
       
     - name: yarn build
       run: |
