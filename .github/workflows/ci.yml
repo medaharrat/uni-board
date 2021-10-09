@@ -1,47 +1,48 @@
-name: CI
-
-on: 
+name: Test, Build & Deploy
+on:
   push:
-    branches:    
-      - master 
-
+    branches: [ master ]
+  pull_request:
+    branches: [ main ]
 jobs:
-  build:
-
+  test_build_deploy:
+    env:
+      CI: true
+      GENERATE_SOURCEMAP: false
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 15.x]
-
+        node-version: [ 14.x ]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      
-      - name: Install dependencies
-        run: |
-          yarn install
-        
-      - name: Build
-        run: |
-          yarn build
-      
-      - name: Login to Heroku Container registry
-        env: 
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login 
-
-      - name: Build and push
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web 
-
-      - name: Release
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web 
+          registry-url: 'https://registry.npmjs.org'
+      - name: 📥 Get latest source code
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          token: ${{ secrets.TOKEN_GITHUB }}
+      - name: 🗑️ Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: 🔄 Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: 📦 Install dependencies
+        run: yarn install
+      - name: 🏗️ Build main package
+        run: yarn run build
+      - name: 🏗️ Build example app
+        run: yarn run build:example
+      - name: 🚀 Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: packages/examples/build/
