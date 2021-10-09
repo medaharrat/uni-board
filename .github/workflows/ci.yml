@@ -11,25 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    
-    - name: yarn install
-      run: |
-        yarn install
-
-    # Add test command later on
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
       
-    - name: next build
-      run: |
-        next build
-    
-    - name: Add remote origin
-      run: |
-        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
-    - name: Deploy to Heroku
-      run: |
-        git push heroku HEAD:master -f
+      - name: Install dependencies
+        run: |
+          yarn install
+        
+      - name: Build
+        run: |
+          yarn build
+      
+      - name: Add remote origin
+        run: |
+          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
+      - name: Deploy to Heroku
+        run: |
+          git push heroku HEAD:master -f
