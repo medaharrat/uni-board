@@ -13,10 +13,8 @@ const useStyles = makeStyles({
     height:'100%',
   },
   box: {
-    display: 'default',
     width:'100%',
     height:'100%',
-    justifyContent: 'center',
     paddingTop: 100,
     transition: 'transform .2s'
   },

@@ -1,43 +1,18 @@
 import React from "react";
 import { useStyles } from "./styles";
-import { Box, Divider, Typography, Grid } from "@material-ui/core";
-import Comments from "../../Comments";
+import { Box, Typography } from "@material-ui/core";
 
 const Intro = ({ course }) => {
     const classes = useStyles();
 
     return (
         <Box component="div" className={classes.box}>
-
-            <Grid>
-                <Grid>
-                    <Typography variant="h5">
-                        { course.name }
-                    </Typography>
-                    <Typography variant="body2">
-                        { course.description }
-                    </Typography>
-                </Grid>
-
-                <Grid>
-                    { /* Video or picture */ }
-                </Grid>
-            </Grid>
-
-            <Grid>
-                <Grid>
-                    { /* Action buttons */ }
-                </Grid>
-            </Grid>
-
-            <Divider />
-
-            <Grid>
-                <Grid>
-                    <Comments />
-                </Grid>
-            </Grid>
-
+            <Typography variant="h5" className={classes.title}>
+                { course.name }
+            </Typography>
+            <Typography variant="body2" className={classes.description}>
+                { course.description }
+            </Typography>
         </Box>
     );
 }

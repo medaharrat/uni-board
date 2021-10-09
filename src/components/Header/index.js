@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -9,6 +9,8 @@ import TextFieldsIcon from '@material-ui/icons/TextFields';
 import CommentIcon from '@material-ui/icons/Comment';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 import { useStyles } from './styles';
 import Bar from './Bar';
 import clsx from  'clsx';
@@ -16,6 +18,16 @@ import Link from 'next/link';
 
 const Header = ({ title }) => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = useState(null);
+  
+  const isAccountMenuOpen = Boolean(anchorEl);
+
+  const handleAccountMenuOpen = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleAccountMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Grid>
@@ -57,13 +69,32 @@ const Header = ({ title }) => {
               </IconButton>
             </Tooltip>
             <Tooltip title="Account" placement="bottom" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
+              <IconButton 
+                disableRipple 
+                className={classes.iconBtn} 
+                color="primary"
+                aria-controls="primary-search-account-menu"
+                onClick={handleAccountMenuOpen}
+              >
                 <AccountCircle className={classes.icon} />
               </IconButton>
             </Tooltip>
           </Bar>
-        </Grid>
-          
+        </Grid> 
+  
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          id="primary-search-account-menu"
+          keepMounted
+          transformOrigin={{ vertical: 'top ', horizontal: 'center' }}
+          open={isAccountMenuOpen}
+          onClose={handleAccountMenuClose}
+        >
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </Menu>
+        
       </Grid>
 
       { /* The Tools Bar */ }
