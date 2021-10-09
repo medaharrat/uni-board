@@ -12,6 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { useStyles } from './styles';
 import Bar from './Bar';
 import clsx from  'clsx';
+import Link from 'next/link';
 
 const Header = ({ title }) => {
   const classes = useStyles();
@@ -35,9 +36,9 @@ const Header = ({ title }) => {
               noWrap
             >
               <Tooltip title="Home" placement="bottom" arrow>
-                <a href="/">
+                <Link href="/">
                   <b> Uniboard </b>
-                </a>
+                </Link>
               </Tooltip>| IntMedia { title }  
             </Typography>
           </Bar>
