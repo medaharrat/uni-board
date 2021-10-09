@@ -23,9 +23,9 @@ jobs:
 
     # Add test command later on
       
-    - name: yarn build
+    - name: next build
       run: |
-        yarn run build --if-present
+        next build
     
     - name: Add remote origin
       run: |
