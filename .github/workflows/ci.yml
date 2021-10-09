@@ -9,13 +9,19 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 15.x]
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 14.x
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: ${{ matrix.node-version }}
       
       - name: Install dependencies
         run: |
@@ -23,12 +29,15 @@ jobs:
         
       - name: Build
         run: |
-          yarn build
+          yarn build --if-present
       
-      - name: Add remote origin
-        run: |
-          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
-
-      - name: Deploy to Heroku
-        run: |
-          git push heroku HEAD:master -f
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: "mohamedaharrat1@gmail.com"
