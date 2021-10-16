@@ -12,14 +12,13 @@ export const ScrollZoom = (container, max_scale, factor) => {
 	*/
 
 	var target = container.children().first()
-	var size = { w:target.width(),h:target.height() }
+	// var size = { w:target.width(),h:target.height() }
 	var pos = { x:0, y:0 }
 	var zoom_target = { x:0, y:0 }
 	var zoom_point = { x:0, y:0 }
 	var scale = 1
 	
 	target.css('transform-origin','0 0')
-	target.css('transform','translate(0px,0px) scale(0.5)')
 
 	target.on("mousewheel DOMMouseScroll", (e) => {
 		var offset = container.offset()
