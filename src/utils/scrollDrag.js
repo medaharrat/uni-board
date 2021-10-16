@@ -1,49 +1,54 @@
 export const ScrollDrag = (container) => {
-    
-    var target = container.children().first()
-    var pos = { top: 0, left: 0, x: 0, y: 0 };
-    console.log("hii")
-    target.scrollTop = 100;
-    target.scrollLeft = 150;
+    /* 
+	* This function takes care of Drag scroll
+	* functionality in Uniboard.
+	*
+	* Credits: https://htmldom.dev/drag-to-scroll/
+	*
+	* Params:
+	* - container: DOM element
+	*
+	*/
 
-    target.on("mousedown", mouseDownHandler);
+    var pos = { top: 0, left: 0, x: 0, y: 0 };
 
     const mouseDownHandler = (e) => {
         pos = {
             // The current scroll
-            left: target.scrollLeft,
-            top: target.scrollTop,
+            left: container.scrollLeft(),
+            top: container.scrollTop(),
             // Get the current mouse position
             x: e.clientX,
             y: e.clientY,
         };
 
-        target.on("mousemove", mouseMoveHandler);
-        target.on("mouseup", mouseUpHandler);
+        container.on("mousemove", mouseMoveHandler);
+        container.on("mouseup", mouseUpHandler);
     }
 
     const mouseMoveHandler = (e) => {
         // How far the mouse has been moved
         const dx = e.clientX - pos.x;
         const dy = e.clientY - pos.y;
-    
+        //console.log(target)
         // Scroll the element
-        target.scrollTop = pos.top - dy;
-        target.scrollLeft = pos.left - dx;
+        container.scrollTop(pos.top - dy);
+        container.scrollLeft(pos.left - dx);
 
         // Change the cursor and prevent user from selecting the text
-        target.css('cursor','grabbing')
-        target.css('user-select','none')
+        container.css('cursor','grabbing')
+        container.css('user-select','none')
     };
 
     const mouseUpHandler = () => {
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
+        container.off("mousemove");
+        container.off("mouseup");
     
-        target.css('cursor','grab')
-        target.css('user-select','')
+        container.css('cursor','grab')
+        container.css('user-select','')
     };
 
+    container.on("mousedown", mouseDownHandler);
 }
 
 export default ScrollDrag;

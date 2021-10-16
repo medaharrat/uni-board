@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Course from "../Course/index";
 import Header from "../Header/index";
 import ScrollZoom from "../../utils/scrollZoom";
-import ScrollDrag from "../../utils/ScrollDrag";
+import ScrollDrag from "../../utils/scrollDrag";
 import $ from 'jquery';
 
 const Board = () => {
@@ -23,6 +23,25 @@ const Board = () => {
         },
         {
             id: 2,
+            name: "Software Technology",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            comments: [
+                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "orange", size: [40, 40]},
+                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "orange", size: [40, 40]},
+            ]
+        },
+        {
+            id: 3,
+            name: "Interactive Media Design",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            comments: [
+                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "orange", size: [40, 40]},
+                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "orange", size: [40, 40]},
+            ],
+            content: "link_to_content"
+        },
+        {
+            id: 4,
             name: "Software Technology",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             comments: [

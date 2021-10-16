@@ -85,7 +85,6 @@ const Header = ({ title }) => {
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
           id="primary-search-account-menu"
           keepMounted
-          transformOrigin={{ vertical: 'top ', horizontal: 'center' }}
           open={isAccountMenuOpen}
           onClose={handleAccountMenuClose}
         >
