@@ -12,13 +12,14 @@ export const ScrollZoom = (container, max_scale, factor) => {
 	*/
 
 	var target = container.children().first()
-	var size = { w:target.width(),h:target.height() }
+	// var size = { w:target.width(),h:target.height() }
 	var pos = { x:0, y:0 }
 	var zoom_target = { x:0, y:0 }
 	var zoom_point = { x:0, y:0 }
 	var scale = 1
-
+	
 	target.css('transform-origin','0 0')
+
 	target.on("mousewheel DOMMouseScroll", (e) => {
 		var offset = container.offset()
 		zoom_point.x = e.pageX - offset.left
@@ -47,15 +48,16 @@ export const ScrollZoom = (container, max_scale, factor) => {
 
 
 	    // Make sure the slide stays in its container area when zooming out
-	    if(pos.x>0)
+	    /*
+		if(pos.x > 0)
 	        pos.x = 0
-	    if(pos.x+size.w*scale<size.w)
+	    if(pos.x+size.w*scale < size.w)
 	    	pos.x = -size.w*(scale-1)
-	    if(pos.y>0)
+	    if(pos.y > 0)
 	        pos.y = 0
-	     if(pos.y+size.h*scale<size.h)
+	     if(pos.y+size.h*scale < size.h)
 	    	pos.y = -size.h*(scale-1)
-
+		*/
 	    update()
 	})
 
