@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Course from "../Course/index";
 import Header from "../Header/index";
 import ScrollZoom from "../../utils/scrollZoom";
-import ScrollDrag from "../../utils/ScrollDrag";
 import $ from 'jquery';
 
 const Board = () => {
@@ -34,7 +33,6 @@ const Board = () => {
 
     useEffect(() => {
         ScrollZoom($('#container'), 3, 0.2)
-        ScrollDrag($('#container'))
     }, [])
 
     return (    
