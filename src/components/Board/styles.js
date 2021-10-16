@@ -5,12 +5,12 @@ const useStyles = makeStyles({
   container: {
     height: '100vh',
     backgroundColor: palette.background.light,
-    cursor: 'grab',
-    overflow: 'hidden',
   },
   content: {
     width:'100%',
     height:'100%',
+    cursor: 'grab',
+    overflow: 'auto',
   },
   box: {
     width:'100%',

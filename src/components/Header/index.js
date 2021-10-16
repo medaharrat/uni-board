@@ -48,10 +48,8 @@ const Header = ({ title }) => {
               noWrap
             >
               <Tooltip title="Home" placement="bottom" arrow>
-                <Link href="/" passHref={true}>
-                  <b> Uniboard </b>
-                </Link>
-              </Tooltip>| IntMedia { title }  
+                <b> ELTE </b>
+              </Tooltip>| Uniboard { title }  
             </Typography>
           </Bar>
         </Grid>

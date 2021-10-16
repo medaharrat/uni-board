@@ -1,9 +1,9 @@
 import React from "react";
-import Wrapper from "./Wrapper";
+import CommentsWrapper from "./CommentsWrapper";
 
-const Comments = () => {
+const Comments = ({ comments }) => {
     return (
-        <Wrapper />
+        <CommentsWrapper comments={comments} />
     );
 }
 

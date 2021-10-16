@@ -30,9 +30,7 @@ const Circle = ({ course }) => {
 
             <Divider light className={classes.divider}/>
 
-            <Grid xs={12}>
-                <Comments />
-            </Grid>
+            <Comments comments={course.comments} /> 
         </Box>
     );
 }
