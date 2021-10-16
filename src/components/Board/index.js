@@ -53,7 +53,7 @@ const Board = () => {
     ]
 
     useEffect(() => {
-        ScrollZoom($('#container'), 4, 0.2, setScale)
+        ScrollZoom($('#container'), 4, 0.7, setScale)
         ScrollDrag($('#container'))
     }, [])
 

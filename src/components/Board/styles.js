@@ -13,8 +13,12 @@ const useStyles = makeStyles({
     paddingTop: 100,
     paddingBottom: 100,
     transition: 'transform .2s',
+    cursor: 'grab',
   },
-
+  box: {
+    width:'100%',
+    height:'100%',
+  }
 });
 
 export { useStyles };
