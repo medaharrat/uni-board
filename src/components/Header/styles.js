@@ -4,14 +4,14 @@ const useStyles = makeStyles((theme) => ({
   container: {
     position: 'fixed',
     zIndex: 99,
-<<<<<<< HEAD
-    border: '1px solid black',
-=======
-    
->>>>>>> 7f0bec3a88e867c53749b81c9d023f30b669e5e6
+    userSelect: 'none'
   },
   tools: {
     top: '35%',
+  },
+  zoomIndex: {
+    top: '90%',
+    left: '94.5%',
   },
   iconBtn: {
     backgroundColor: 'white',

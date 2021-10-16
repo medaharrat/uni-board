@@ -30,7 +30,6 @@ export const ScrollDrag = (container) => {
         // How far the mouse has been moved
         const dx = e.clientX - pos.x;
         const dy = e.clientY - pos.y;
-        //console.log(target)
         // Scroll the element
         container.scrollTop(pos.top - dy);
         container.scrollLeft(pos.left - dx);
@@ -45,7 +44,6 @@ export const ScrollDrag = (container) => {
         container.off("mouseup");
     
         container.css('cursor','grab')
-        container.css('user-select','')
     };
 
     container.on("mousedown", mouseDownHandler);

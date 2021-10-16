@@ -9,15 +9,12 @@ const useStyles = makeStyles({
   content: {
     width:'100%',
     height:'100%',
-    cursor: 'grab',
-    overflow: 'auto',
-  },
-  box: {
-    width:'100%',
-    height:'100%',
+    overflow: 'hidden',
     paddingTop: 100,
-    transition: 'transform .2s'
+    paddingBottom: 100,
+    transition: 'transform .2s',
   },
+
 });
 
 export { useStyles };

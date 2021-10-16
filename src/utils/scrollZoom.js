@@ -1,4 +1,4 @@
-export const ScrollZoom = (container, max_scale, factor) => {
+export const ScrollZoom = (container, max_scale, factor, setScale) => {
 	/* 
 	* This function takes care of the Zoom in Zoom out
 	* functionality in Uniboard.
@@ -12,7 +12,7 @@ export const ScrollZoom = (container, max_scale, factor) => {
 	*/
 
 	var target = container.children().first()
-	// var size = { w:target.width(),h:target.height() }
+	var size = { w:target.width(),h:target.height() }
 	var pos = { x:0, y:0 }
 	var zoom_target = { x:0, y:0 }
 	var zoom_point = { x:0, y:0 }
@@ -48,7 +48,6 @@ export const ScrollZoom = (container, max_scale, factor) => {
 
 
 	    // Make sure the slide stays in its container area when zooming out
-	    /*
 		if(pos.x > 0)
 	        pos.x = 0
 	    if(pos.x+size.w*scale < size.w)
@@ -57,12 +56,13 @@ export const ScrollZoom = (container, max_scale, factor) => {
 	        pos.y = 0
 	     if(pos.y+size.h*scale < size.h)
 	    	pos.y = -size.h*(scale-1)
-		*/
+
 	    update()
 	})
 
 	const update = () => {
 		target.css('transform','translate('+(pos.x)+'px,'+(pos.y)+'px) scale('+scale+','+scale+')')
+		setScale(Math.round(scale*100));
 	}
 }
 
