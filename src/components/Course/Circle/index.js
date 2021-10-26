@@ -22,7 +22,7 @@ const Circle = ({ course }) => {
                 </Grid>
                 )}
                 */}
-                <Grid item xs="12">
+                <Grid item xs={12}>
                     <Intro course={course} />
                     { /*Action buttons*/ }
                 </Grid>

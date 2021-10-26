@@ -16,7 +16,7 @@ import Bar from './Bar';
 import clsx from  'clsx';
 import Link from 'next/link';
 
-const Header = ({ title }) => {
+const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   
@@ -85,7 +85,6 @@ const Header = ({ title }) => {
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
           id="primary-search-account-menu"
           keepMounted
-          transformOrigin={{ vertical: 'top ', horizontal: 'center' }}
           open={isAccountMenuOpen}
           onClose={handleAccountMenuClose}
         >
@@ -114,6 +113,17 @@ const Header = ({ title }) => {
                 <MoreHorizIcon className={classes.icon} />
               </IconButton>
             </Tooltip>
+          </Bar>
+        </Grid>
+      </Grid>
+
+      { /* Zoom index */ }
+      <Grid className={ clsx(classes.container, classes.zoomIndex) }>
+        <Grid item>
+          <Bar>
+            <Typography variant="body1" color="primary">
+              {zoomIndex}%
+            </Typography>
           </Bar>
         </Grid>
       </Grid>
