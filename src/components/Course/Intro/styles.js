@@ -4,12 +4,17 @@ import palette from '../../../static/palette';
 const useStyles = makeStyles({
   box: {
     userSelect: ' none',
+    align: 'center',
+    height: '30',
+    width: '100',
+    backgroundColor: palette.background.dark_blue,
   },
   title: {
-    color: palette.text.primary
+    color: palette.text.light_gray,
+
   },  
   description: {
-    color: palette.text.secondary
+    color: palette.text.light_gray,
   },
 });
 
