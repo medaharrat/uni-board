@@ -2,30 +2,16 @@ import React from "react";
 import { NoSsr } from '@material-ui/core';
 import Board from "../components/Board";
 import Login from "../components/Login";
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 const Index = () => {
   return (
     <NoSsr>
-       <BrowserRouter>
-        <nav>
-          <ul>
-            <li><Link to="/Dashboard">AfterLogin(Dashboard)</Link></li>
-            <li><Link to="/">Login</Link></li>
-            
-          </ul>
-        </nav>
-        
+      <Router>
         <Switch>
-          <Route path="/Dashboard">
-            <Board />
-          </Route>
-          <Route path="/">
-            <Login />
-          </Route>
-          
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Board}/>
         </Switch>
-      </BrowserRouter>
-      
+      </Router>
     </NoSsr>
   )
 }

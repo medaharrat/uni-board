@@ -15,10 +15,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Lock from '@material-ui/icons/Lock';
 import Mail from '@material-ui/icons/Mail';
 import {createTheme} from  '@material-ui/core/styles';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+
 const theme = createTheme({
     
     palette:{
@@ -62,7 +60,6 @@ export const Login = ({}) => {
             Sign into your account
           </Box>
         </Typography>
-        <form className={classes.form} noValidate>
           <Grid 
               container
               direction="row"
@@ -112,32 +109,22 @@ export const Login = ({}) => {
             </Grid>
             <Grid item xs={9}>  
             <FormControl component="fieldset">
-  <FormLabel component="legend">You are :</FormLabel>
-  <RadioGroup
-    aria-label="gender"
-    defaultValue="female"
-    name="radio-buttons-group"
-  >
-    <FormControlLabel value="instructor" control={<Radio />} label="Instructor" />
-    <FormControlLabel value="student" control={<Radio />} label="Student" />
-   
-  </RadioGroup>
 </FormControl>
             </Grid>
 
             <Grid item xs={9} >
+              <Link href="/dashboard">
               <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="secondary"
               className={classes.submit}
               m={0}
-              >sign In
-                <Link href="/Dashboard" />
-                
+              >
+                sign In
       
               </Button>
+              </Link>
             </Grid>
 
             <Grid item>
@@ -151,7 +138,6 @@ export const Login = ({}) => {
           </Grid>
 
           
-        </form>
       </div>
     </Container>
     </MuiThemeProvider>
