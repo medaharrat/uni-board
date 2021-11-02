@@ -7,10 +7,10 @@ const Intro = ({ course }) => {
 
     return (
         <Box component="div" className={classes.box}>
-            <Typography variant="h5" className={classes.title}>
+            <Typography variant="h5" className={classes.title} align='center'>
                 { course.name }
             </Typography>
-            <Typography variant="body2" className={classes.description}>
+            <Typography variant="body2" className={classes.description} >
                 { course.description }
             </Typography>
         </Box>

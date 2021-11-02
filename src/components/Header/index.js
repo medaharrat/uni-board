@@ -15,6 +15,8 @@ import { useStyles } from './styles';
 import Bar from './Bar';
 import clsx from  'clsx';
 import Link from 'next/link';
+import palette from '../../static/palette';
+
 
 const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
@@ -43,13 +45,13 @@ const Header = ({ title, zoomIndex }) => {
             <Typography 
               className={classes.title} 
               align="center"
-              color="primary"
+              color= {palette.text.dark_1}
               variant="overline" 
               noWrap
             >
               <Tooltip title="Home" placement="bottom" arrow>
                 <b> ELTE </b>
-              </Tooltip>| Uniboard { title }  
+              </Tooltip >| Uniboard { title }  
             </Typography>
           </Bar>
         </Grid>

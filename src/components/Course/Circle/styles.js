@@ -3,13 +3,16 @@ import palette from '../../../static/palette';
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    border: '1px dashed grey',
+    border: '2px solid ' + palette.background.dark_blue,
+    
     padding: 20,
     margin: 10,
-    backgroundColor: palette.background.white
+    backgroundColor: palette.background.light_gray
   },  
   divider: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    borderTop: '5px',
+    backgroundColor:palette.background.dark_blue,
   }
 }));
 

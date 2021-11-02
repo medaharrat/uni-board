@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import palette from '../../static/palette';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10
   },
   icon: {
-    fill: "#0078FF",
+    fill: palette.text.dark_1,
   },
 }));
 
