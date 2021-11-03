@@ -4,6 +4,7 @@ import { Box, Divider, Grid } from "@material-ui/core";
 import Intro from "../Intro";
 import Comments from "../../Comments";
 import Content from "../../Content";
+import CustomButton from "../../CustomButton";
 
 const Circle = ({ course }) => {
     const classes = useStyles();
@@ -29,6 +30,10 @@ const Circle = ({ course }) => {
             </Grid>
 
             <Divider light className={classes.divider}/>
+            <CustomButton text="register" type="register">  </CustomButton>
+            <CustomButton text="cancel" type="cancel">  </CustomButton>
+            <CustomButton text="Default" type="default">  </CustomButton>
+            <CustomButton text="Default-2" type="Default_2">  </CustomButton>
 
             <Comments comments={course.comments} /> 
         </Box>

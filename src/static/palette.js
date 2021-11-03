@@ -75,7 +75,12 @@ const palette = {
     light: '#e5e5e5',
     dark_blue: '#170b36'
   },
-
+  button: {
+    green: "#36533E",
+    red: "#7B1B1B",
+    gray :'#3b3b3b',
+    blue: "#0B2244"
+  }
  
 };
 
