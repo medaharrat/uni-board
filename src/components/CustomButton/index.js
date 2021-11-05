@@ -1,39 +1,20 @@
-
 import React from "react";
+import { Button } from "@material-ui/core";
 import { useStyles } from "./styles";
-import {Button} from "@material-ui/core";
+import clsx from  'clsx';
 
-const CustomButton = ({text,type}) => {
+const CustomButton = ({ text, register, cancel }) => {
     const classes = useStyles();
-    
-    if (type =="register")
-    return (
-            <Button variant="contained" className={classes.register} align = 'center'>
-            {text}</Button>
 
-    );
-    else 
-    if (type =="cancel")
     return (
-        <Button variant="contained" className={classes.cancel} align = 'center'>
-        {text}</Button>
-    );
-    
-    else 
-    if (type =="default")
- 
-    return (
-        <Button variant="contained" className={classes.default} align = 'center'>
-        {text}</Button>
-
-);
-else 
-    return (
-        <Button variant="contained" className={classes.default_2} align = 'center'>
-        {text}</Button>
-
-);
-default_2
+        <Button 
+            variant="contained" 
+            className={clsx(classes.btn, register ? classes.register : (cancel ? classes.cancel : classes.default))}
+            align="center"
+        >
+            {text ? text : 'Button'}
+        </Button>
+    )
 }
 
 export default CustomButton;
