@@ -1,11 +1,4 @@
 const palette = {
-  primary: {
-    main: '',
-    light: '',
-  },
-  secondary: {
-    main: '',
-  },
   background: {
     default: '#fdfdfd',
     white: '#ffffff',
@@ -20,12 +13,14 @@ const palette = {
     light_blue: '#32507a',
     light_blue2: '#5a89a5',
     light_gray :'#d7d7d7',
+
     //faculty of Humanities
     dark_red: '#5d1222',
     dark_red2: '#7c1c1c',
     light_1: '#a16a45',
     light_2: '#beb071',
     light_3: '#c7dd9a',
+
     //faculty of science 
     dark_green: '#164b2d',
     dark_green2: '#2b664e',
@@ -48,18 +43,21 @@ const palette = {
     dark: '#9b9b9b',
     light: '#e5e5e5',
     light_gray :'#d7d7d7',
+
     //faculty of informatics
     dark_blue: '#170b36',
     dark_blue2: '#1c2657',
     light_blue: '#32507a',
     light_blue2: '#5a89a5',
     light_gray :'#d7d7d7',
+
     //faculty of Humanities
     dark_red: '#580c1c',
     dark_red2: '#7c1d1d',
     light_1: '#9f6741',
     light_2: '#bdaf70',
     light_3: '#c7dd9a',
+
     //faculty of science 
     dark_green: '#164b2d',
     dark_green2: '#336c55',
