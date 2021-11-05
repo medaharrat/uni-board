@@ -14,133 +14,118 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Lock from '@material-ui/icons/Lock';
 import Mail from '@material-ui/icons/Mail';
-import {createTheme} from  '@material-ui/core/styles';
+import {createTheme} from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 
 const theme = createTheme({
-    
-    palette:{
-      primary:{main: '#F5B62A'},
-      secondary:{main:'#383938'},
-    },
-    typography: {
-        fontFamily: ['"Poppins"', 'Open Sans'].join(',')
-       }
-  });
+  palette:{
+    primary:{main: '#F5B62A'},
+    secondary:{main:'#383938'},
+  },
+  typography: {
+    fontFamily: ['"Poppins"', 'Open Sans'].join(',')
+  }
+});
  
 
-export const Login = ({}) => {
+const Login = () => {
+  const classes = useStyles();
 
-
-      
-      const classes = useStyles();
-    return  (
-     <MuiThemeProvider theme={theme}>
+  return  (
+    <MuiThemeProvider theme={theme}>
     <Container component="main" maxWidth="sm">
       <CssBaseline />
       <div className={classes.paper}>
       <Grid 
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
       >   
-        <Grid item xs={9}>
-            
-        </Grid>
+        <Grid item xs={9}></Grid>
       </Grid>
         
-        <Typography component="div">
-          <Box fontSize={30} fontWeight={600} m={-2}>
-              UNI-BOARD
-          </Box>
-        </Typography>
-        <Typography component="div">
-          <Box fontSize={16} m={1} paddingT>
-            Sign into your account
-          </Box>
-        </Typography>
-          <Grid 
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-          >
-            <Grid item xs={9}>
-              <TextField
-                className={classes.inputF}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Neptun Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                InputProps={{
-                  startAdornment: <InputAdornment position="start"><Mail color="disabled"/></InputAdornment>,
-                }}
-              />
-            </Grid>
-
-            <Grid item xs={9}>
-              <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              InputProps={{
-                startAdornment: <InputAdornment position="start"><Lock color="disabled" /></InputAdornment>,
-              }}
-              />
-            </Grid>
-
-            <Grid item xs={9}>
-              <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-              />
-            </Grid>
-            <Grid item xs={9}>  
-            <FormControl component="fieldset">
-</FormControl>
-            </Grid>
-
-            <Grid item xs={9} >
-              <Link href="/dashboard">
-              <Button
+      <Typography component="div">
+        <Box fontSize={30} fontWeight={600} m={-2}>
+          UNI-BOARD
+        </Box>
+      </Typography>
+      <Typography component="div">
+        <Box fontSize={16} m={1} paddingT>
+          Sign into your account
+        </Box>
+      </Typography>
+      <Grid 
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item xs={9}>
+          <TextField
+            className={classes.inputF}
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Neptun Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            InputProps={{
+              startAdornment: <InputAdornment position="start"><Mail color="disabled"/></InputAdornment>,
+            }}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            InputProps={{
+              startAdornment: <InputAdornment position="start"><Lock color="disabled" /></InputAdornment>,
+            }}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+        </Grid>
+        <Grid item xs={9}>  
+          <FormControl component="fieldset"/>
+        </Grid>
+        <Grid item xs={9} >
+          <Link href="/board">
+            <Button
               fullWidth
               variant="contained"
               color="secondary"
               className={classes.submit}
               m={0}
-              >
-                sign In
-      
-              </Button>
-              </Link>
-            </Grid>
-
-            <Grid item>
-              <Link href="#" variant="body2" color="secondary" >
-                Forgot your password?
-              </Link>
-            </Grid>
-
-           
-
-          </Grid>
-
-          
+            >
+              sign In
+            </Button>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="#" variant="body2" color="secondary" >
+            Forgot your password?
+          </Link>
+        </Grid>
+      </Grid>  
       </div>
     </Container>
     </MuiThemeProvider>
   );
 }
+
 export default Login;

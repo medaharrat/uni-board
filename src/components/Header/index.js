@@ -117,6 +117,35 @@ const Header = ({ title, zoomIndex }) => {
         </Grid>
       </Grid>
 
+      { /* Switch Faculties */ }
+      <Grid className={ clsx(classes.container, classes.switch) }>
+        <Grid item>
+          <Bar vertical>
+            <Tooltip title="IK" placement="right" arrow>
+              <IconButton disableRipple className={classes.iconBtn} color="primary">
+                <Typography className={ classes.facultyBtn }>
+                  IK
+                </Typography>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="IK" placement="right" arrow>
+              <IconButton disableRipple className={classes.iconBtn} color="primary">
+                <Typography className={ classes.facultyBtn }>
+                  IK
+                </Typography>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="IK" placement="right" arrow>
+              <IconButton disableRipple className={classes.iconBtn} color="primary">
+                <Typography className={ classes.facultyBtn }>
+                  IK
+                </Typography>
+              </IconButton>
+            </Tooltip>
+          </Bar>
+        </Grid>
+      </Grid>
+
       { /* Zoom index */ }
       <Grid className={ clsx(classes.container, classes.zoomIndex) }>
         <Grid item>

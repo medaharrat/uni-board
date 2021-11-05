@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
   tools: {
     top: '35%',
   },
+  switch: {
+    top: '35%',
+    left: '94.5%',
+  },
   zoomIndex: {
     top: '90%',
     left: '94.5%',
@@ -16,7 +20,10 @@ const useStyles = makeStyles((theme) => ({
   iconBtn: {
     backgroundColor: 'white',
     padding: 3,
-    marginRight: 10
+    marginRight: 10,
+  },
+  facultyBtn: {
+    fontWeight: 600,
   },
   icon: {
     fill: "#0078FF",
