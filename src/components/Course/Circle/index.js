@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 import { Box, Divider, Grid } from "@material-ui/core";
 import Intro from "../Intro";
 import Comments from "../../Comments";
-import CustomButton from "../../CustomButton";
+import Discussions from "../../Discussion";
 
 const Circle = ({ course }) => {
     const classes = useStyles();
@@ -24,8 +24,7 @@ const Circle = ({ course }) => {
 
             <Divider light className={classes.divider}/>
             { /*Discussions*/ }
-
-            <Comments comments={course.comments} /> 
+            <Discussions discussions={course.discussions}/>
         </Box>
     );
 }

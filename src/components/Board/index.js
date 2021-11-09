@@ -16,9 +16,25 @@ const Board = () => {
             id: 1,
             name: "Interactive Media Design",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            comments: [
-                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "#f5f5dc", size: [40, 40]},
+            discussions: [
+                {
+                    id: 1, 
+                    title: "Course teachers", 
+                    comments: [
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                    ],
+                    date: "01/01/2018"
+                },
+                {
+                    id: 2, 
+                    title: "Course material", 
+                    comments: [
+                        {id: 1, comment: "Material is really interesting!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Meeh!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                    ],
+                    date: "01/01/2018"
+                }
             ],
             content: "link_to_content"
         },
@@ -26,18 +42,32 @@ const Board = () => {
             id: 2,
             name: "Software Technology",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            comments: [
-                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "#f5f5dc", size: [40, 40]},
-            ]
+            discussions: [
+                {
+                    id: 1, 
+                    title: "Course teachers", 
+                    comments: [
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
         },
         {
             id: 3,
             name: "Interactive Media Design",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            comments: [
-                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "#f5f5dc", size: [40, 40]},
+            discussions: [
+                {
+                    id: 1, 
+                    title: "Course teachers", 
+                    comments: [
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                    ],
+                    date: "01/01/2018"
+                }
             ],
             content: "link_to_content"
         },
@@ -45,10 +75,17 @@ const Board = () => {
             id: 4,
             name: "Software Technology",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            comments: [
-                {id: 1, comment: "This is a good course!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                {id: 2, comment: "The material is really useful.", student_id: 1, course_id: 2, date: "26/01/2018", color: "#f5f5dc", size: [40, 40]},
-            ]
+            discussions: [
+                {
+                    id: 1, 
+                    title: "Course teachers", 
+                    comments: [
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
         },
     ]
 
