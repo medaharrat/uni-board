@@ -30,7 +30,7 @@ const Board = () => {
                     id: 2, 
                     title: "Course material", 
                     comments: [
-                        {id: 1, comment: "Material sucks!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 1, comment: "Material is really interesting!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
                         {id: 2, comment: "Meeh!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
                     ],
                     date: "01/01/2018"
