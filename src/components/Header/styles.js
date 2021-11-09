@@ -17,17 +17,28 @@ const useStyles = makeStyles((theme) => ({
   zoomIndex: {
     top: '90%',
     left: '94.5%',
+    fontWeight: 600,
+    fontSize: 14,
   },
   iconBtn: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent !important',
     padding: 3,
     marginRight: 10,
   },
-  facultyBtn: {
+  textBtn: {
+    backgroundColor: 'transparent !important',
+    height: 20, width: 20,
+    textAlign: 'center',
+    color: palette.text.primary,
     fontWeight: 600,
+    fontSize: 14,
+  },
+  textBtnContent: {
+    fontWeight: 600,
+    fontSize: 14,
   },
   icon: {
-    fill: palette.text.dark_1,
+    fill: palette.text.primary,
   },
 }));
 
