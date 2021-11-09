@@ -3,8 +3,7 @@ import palette from '../../../static/palette';
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    border: '2px solid ' + palette.background.dark_blue,
-    
+    border: '1px solid ' + palette.background.dark_blue,
     padding: 20,
     margin: 10,
     backgroundColor: palette.background.light_gray
@@ -13,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
     borderTop: '5px',
     backgroundColor:palette.background.dark_blue,
+  },
+  btnGroup: {
+    padding: 10
   }
 }));
 

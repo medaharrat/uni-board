@@ -11,6 +11,8 @@ const CustomButton = ({ text, register, cancel }) => {
             variant="contained" 
             className={clsx(classes.btn, register ? classes.register : (cancel ? classes.cancel : classes.default))}
             align="center"
+            disableRipple
+            disableElevation
         >
             {text ? text : 'Button'}
         </Button>

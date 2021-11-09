@@ -26,6 +26,9 @@ const Discussion = ({ discussions }) => {
                     </AccordionDetails>
                 </Accordion>
             ))}
+            <div className={classes.newDiscussion}>
+                <Typography> Add new discussion </Typography>
+            </div>
         </Box>
     );
 }

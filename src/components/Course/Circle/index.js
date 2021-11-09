@@ -15,11 +15,9 @@ const Circle = ({ course }) => {
                 <Grid item xs={12}>
                     <Intro course={course} />
                     { /*Action buttons*/ }
-                    <Box>
+                    <Grid container justifyContent="center" className={classes.btnGroup}>
                         <CustomButton register text="register"/>
-                        <CustomButton cancel text="cancel"/>
-                        <CustomButton text="default"/>
-                    </Box>
+                    </Grid>
                 </Grid>
             </Grid>
 
