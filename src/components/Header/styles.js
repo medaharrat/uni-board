@@ -23,8 +23,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 3,
     marginRight: 10,
   },
+  textBtn: {
+    backgroundColor: 'transparent !important',
+    height: 20, width: 20,
+    textAlign: 'center'
+  },
   facultyBtn: {
     fontWeight: 600,
+    fontSize: 14,
   },
   icon: {
     fill: palette.text.dark_1,

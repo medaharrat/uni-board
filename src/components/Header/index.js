@@ -120,25 +120,15 @@ const Header = ({ title, zoomIndex }) => {
       </Grid>
 
       { /* Switch Faculties */ }
-      <Grid className={ clsx(classes.container, classes.switch) }>
+      <Grid   
+        direction="column"
+        justifyContent="center"
+        alignItems="center" className={ clsx(classes.container, classes.switch) }
+      >
         <Grid item>
           <Bar vertical>
-            <Tooltip title="IK" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <Typography className={ classes.facultyBtn }>
-                  IK
-                </Typography>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="IK" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <Typography className={ classes.facultyBtn }>
-                  IK
-                </Typography>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="IK" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
+            <Tooltip title="IK" placement="left" arrow>
+              <IconButton disableRipple className={classes.textBtn} color="primary">
                 <Typography className={ classes.facultyBtn }>
                   IK
                 </Typography>
@@ -146,6 +136,31 @@ const Header = ({ title, zoomIndex }) => {
             </Tooltip>
           </Bar>
         </Grid>
+
+        <Grid item>
+          <Bar vertical>
+            <Tooltip title="TTK" placement="left" arrow>
+              <IconButton disableRipple className={classes.textBtn} color="primary">
+                <Typography className={ classes.facultyBtn }>
+                  TTK
+                </Typography>
+              </IconButton>
+            </Tooltip>
+          </Bar>
+        </Grid>
+
+        <Grid item>
+          <Bar vertical>
+            <Tooltip title="GTK" placement="left" arrow>
+              <IconButton disableRipple className={classes.textBtn} color="primary">
+                <Typography className={ classes.facultyBtn }>
+                  GTK
+                </Typography>
+              </IconButton>
+            </Tooltip>
+          </Bar>
+        </Grid>
+
       </Grid>
 
       { /* Zoom index */ }
