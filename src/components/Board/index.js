@@ -8,7 +8,7 @@ import ScrollZoom from "../../utils/scrollZoom";
 import ScrollDrag from "../../utils/scrollDrag";
 import $ from 'jquery';
 
-const Board = () => {
+const Board = ({ faculty }) => {
     const classes = useStyles();
     const [scale, setScale] = useState(100);
     const courses = [

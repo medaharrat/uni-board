@@ -1,16 +1,16 @@
 import React from "react";
 import { NoSsr } from '@material-ui/core';
-import Board from "../components/Board";
-import Login from "../components/Login";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { routes } from "./routes";
 
 const Index = () => {
   return (
     <NoSsr>
        <Router>
         <Routes>
-          <Route path="/" element={ <Board /> } />
-          <Route path="/login" element={ <Login /> } />
+          {routes.map((route) => (
+            <Route path={route.path} element={route.element} />
+          ))}
         </Routes>
       </Router>
     </NoSsr>

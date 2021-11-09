@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fill: palette.text.primary,
   },
+  selected: {
+    border: '1px solid black !important',
+    borderRadius: 10
+  }
 }));
 
 export { useStyles };

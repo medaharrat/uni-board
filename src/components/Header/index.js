@@ -126,7 +126,7 @@ const Header = ({ title, zoomIndex }) => {
         <Grid item>
           <Bar vertical>
             <Tooltip title="IK" placement="left" arrow>
-              <IconButton disableRipple className={classes.textBtn} color="primary">
+              <IconButton disableRipple className={clsx(classes.textBtn, classes.selected)} color="primary">
                 <Typography className={ classes.textBtnContent }>
                   IK
                 </Typography>
