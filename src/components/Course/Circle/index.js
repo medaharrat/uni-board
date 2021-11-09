@@ -4,6 +4,7 @@ import { Box, Divider, Grid } from "@material-ui/core";
 import Intro from "../Intro";
 import Comments from "../../Comments";
 import Discussions from "../../Discussion";
+import CustomButton from "../../CustomButton";
 
 const Circle = ({ course }) => {
     const classes = useStyles();
