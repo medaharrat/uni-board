@@ -1,12 +1,11 @@
 const palette = {
   background: {
+
     default: '#fdfdfd',
     white: '#ffffff',
-    dark_1 :'#3b3b3b',
-    dark_2:'#777575',
+    light: '#f2f2f2',
     dark: '#9b9b9b',
-    light: '#e5e5e5',
-    light_gray :'#d7d7d7',
+
     //faculty of informatics
     dark_blue: '#170b36',
     dark_blue2: '#1c2657',
@@ -35,14 +34,7 @@ const palette = {
     disabled: 'rgba(0, 0, 0, 0.38)',
     hint: 'rgba(0, 0, 0, 0.38)',
     title: 'rgba(0, 0, 0, 0.6)',
-    title2: 'rgba(0, 0, 0, 0.65)',
-    default: '#fdfdfd',
-    white: '#ffffff',
-    dark_1 :'#3b3b3b',
-    dark_2:'#777575',
-    dark: '#9b9b9b',
-    light: '#e5e5e5',
-    light_gray :'#d7d7d7',
+    subtitle: 'rgba(0, 0, 0, 0.65)',
 
     //faculty of informatics
     dark_blue: '#170b36',

@@ -7,14 +7,13 @@ const useStyles = makeStyles({
     align: 'center',
     height: '30',
     width: '100',
-    backgroundColor: palette.background.dark_blue,
   },
   title: {
-    color: palette.text.light_gray,
+    fontWeight: 300
 
   },  
   description: {
-    color: palette.text.light_gray,
+    color: palette.text.secondary,
   },
 });
 

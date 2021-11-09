@@ -43,9 +43,7 @@ const Header = ({ title, zoomIndex }) => {
         <Grid item>
           <Bar>
             <Typography 
-              className={classes.title} 
               align="center"
-              color= {palette.text.dark_1}
               variant="overline" 
               noWrap
             >
@@ -129,7 +127,7 @@ const Header = ({ title, zoomIndex }) => {
           <Bar vertical>
             <Tooltip title="IK" placement="left" arrow>
               <IconButton disableRipple className={classes.textBtn} color="primary">
-                <Typography className={ classes.facultyBtn }>
+                <Typography className={ classes.textBtnContent }>
                   IK
                 </Typography>
               </IconButton>
@@ -141,7 +139,7 @@ const Header = ({ title, zoomIndex }) => {
           <Bar vertical>
             <Tooltip title="TTK" placement="left" arrow>
               <IconButton disableRipple className={classes.textBtn} color="primary">
-                <Typography className={ classes.facultyBtn }>
+                <Typography className={ classes.textBtnContent }>
                   TTK
                 </Typography>
               </IconButton>
@@ -153,7 +151,7 @@ const Header = ({ title, zoomIndex }) => {
           <Bar vertical>
             <Tooltip title="GTK" placement="left" arrow>
               <IconButton disableRipple className={classes.textBtn} color="primary">
-                <Typography className={ classes.facultyBtn }>
+                <Typography className={ classes.textBtnContent }>
                   GTK
                 </Typography>
               </IconButton>
@@ -167,7 +165,7 @@ const Header = ({ title, zoomIndex }) => {
       <Grid className={ clsx(classes.container, classes.zoomIndex) }>
         <Grid item>
           <Bar>
-            <Typography variant="body1" color="primary">
+            <Typography variant="body1" className={ classes.textBtnContent }>
               {zoomIndex}%
             </Typography>
           </Bar>
