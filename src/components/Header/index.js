@@ -11,17 +11,19 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Link from '@material-ui/core/Link';
 import { useStyles } from './styles';
 import Bar from './Bar';
 import clsx from  'clsx';
-import Link from 'next/link';
-import palette from '../../static/palette';
-
 
 const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  
+  const faculties = [
+    {name: "Faculty of Informatics", path: "/ik", abreviation: "IK"},
+    {name: "Faculty of Sciences", path: "/ttk", abreviation: "TTK"},
+    {name: "Faculty of Economics", path: "/gtk", abreviation: "GTK"},
+  ]
   const isAccountMenuOpen = Boolean(anchorEl);
 
   const handleAccountMenuOpen = (e) => {
@@ -32,7 +34,7 @@ const Header = ({ title, zoomIndex }) => {
   };
 
   return (
-    <Grid>
+    <div>
       { /* The Top Bars */ }
       <Grid 
         container 
@@ -52,6 +54,29 @@ const Header = ({ title, zoomIndex }) => {
               </Tooltip >| Uniboard { title }  
             </Typography>
           </Bar>
+          
+          { /* The Tools Bar */ }
+          <Grid className={ clsx(classes.container, classes.tools) }>
+            <Grid item>
+              <Bar vertical>
+                <Tooltip title="Text" placement="right" arrow>
+                  <IconButton disableRipple className={classes.iconBtn} color="primary">
+                    <TextFieldsIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Comment" placement="right" arrow>
+                  <IconButton disableRipple className={classes.iconBtn} color="primary">
+                    <CommentIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="More actions" placement="right" arrow>
+                  <IconButton disableRipple className={classes.iconBtn} color="primary">
+                    <MoreHorizIcon className={classes.icon} />
+                  </IconButton>
+                </Tooltip>
+              </Bar>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Grid item>
@@ -78,100 +103,53 @@ const Header = ({ title, zoomIndex }) => {
               </IconButton>
             </Tooltip>
           </Bar>
+          { /* Dropdown */}
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            id="primary-search-account-menu"
+            keepMounted
+            open={isAccountMenuOpen}
+            onClose={handleAccountMenuClose}
+          >
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>Logout</MenuItem>
+          </Menu>
+
+          { /* Zoom index */ }
+          <Grid className={ clsx(classes.container, classes.zoomIndex) }>
+            <Grid item>
+              <Bar>
+                <Typography variant="body1" className={ classes.textBtnContent }>
+                  {zoomIndex}%
+                </Typography>
+              </Bar>
+            </Grid>
+          </Grid>
+
+          { /* Switch Faculties */ }
+          <Grid   
+            direction="column"
+            justifyContent="center"
+            alignItems="center" className={ clsx(classes.container, classes.switch) }
+          >
+            {faculties.map((faculty) => (
+            <Grid item>
+              <Link href={faculty.path} className={classes.textBtn}>
+              <Bar vertical>
+                <Tooltip title={faculty.name} placement="left" arrow>
+                  <Typography className={ classes.textBtnContent }>
+                    {faculty.abreviation}
+                  </Typography>
+                </Tooltip>
+              </Bar>
+              </Link>
+            </Grid>
+            ))}
+          </Grid>
         </Grid> 
-  
-        <Menu
-          anchorEl={anchorEl}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-          id="primary-search-account-menu"
-          keepMounted
-          open={isAccountMenuOpen}
-          onClose={handleAccountMenuClose}
-        >
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </Menu>
-        
       </Grid>
-
-      { /* The Tools Bar */ }
-      <Grid className={ clsx(classes.container, classes.tools) }>
-        <Grid item>
-          <Bar vertical>
-            <Tooltip title="Text" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <TextFieldsIcon className={classes.icon} />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Comment" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <CommentIcon className={classes.icon} />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="More actions" placement="right" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <MoreHorizIcon className={classes.icon} />
-              </IconButton>
-            </Tooltip>
-          </Bar>
-        </Grid>
-      </Grid>
-
-      { /* Switch Faculties */ }
-      <Grid   
-        direction="column"
-        justifyContent="center"
-        alignItems="center" className={ clsx(classes.container, classes.switch) }
-      >
-        <Grid item>
-          <Bar vertical>
-            <Tooltip title="IK" placement="left" arrow>
-              <IconButton disableRipple className={clsx(classes.textBtn, classes.selected)} color="primary">
-                <Typography className={ classes.textBtnContent }>
-                  IK
-                </Typography>
-              </IconButton>
-            </Tooltip>
-          </Bar>
-        </Grid>
-
-        <Grid item>
-          <Bar vertical>
-            <Tooltip title="TTK" placement="left" arrow>
-              <IconButton disableRipple className={classes.textBtn} color="primary">
-                <Typography className={ classes.textBtnContent }>
-                  TTK
-                </Typography>
-              </IconButton>
-            </Tooltip>
-          </Bar>
-        </Grid>
-
-        <Grid item>
-          <Bar vertical>
-            <Tooltip title="GTK" placement="left" arrow>
-              <IconButton disableRipple className={classes.textBtn} color="primary">
-                <Typography className={ classes.textBtnContent }>
-                  GTK
-                </Typography>
-              </IconButton>
-            </Tooltip>
-          </Bar>
-        </Grid>
-
-      </Grid>
-
-      { /* Zoom index */ }
-      <Grid className={ clsx(classes.container, classes.zoomIndex) }>
-        <Grid item>
-          <Bar>
-            <Typography variant="body1" className={ classes.textBtnContent }>
-              {zoomIndex}%
-            </Typography>
-          </Bar>
-        </Grid>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
 

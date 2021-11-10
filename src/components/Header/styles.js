@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
   switch: {
     top: '35%',
-    left: '94.5%',
+    right: 0
   },
   zoomIndex: {
     top: '90%',
-    left: '94.5%',
+    right: 0,
     fontWeight: 600,
     fontSize: 14,
   },
@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
   },
   textBtn: {
-    backgroundColor: 'transparent !important',
     height: 20, width: 20,
-    textAlign: 'center',
     color: palette.text.primary,
     fontWeight: 600,
     fontSize: 14,
+    textDecoration: 'none !important',
+    textAlign: 'center'
   },
   textBtnContent: {
     fontWeight: 600,
@@ -40,10 +40,6 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fill: palette.text.primary,
   },
-  selected: {
-    border: '1px solid black !important',
-    borderRadius: 10
-  }
 }));
 
 export { useStyles };
