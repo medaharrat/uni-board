@@ -9,6 +9,21 @@ const useStyles = makeStyles({
         marginTop: 5,
         textAlign: 'center',
         cursor: 'pointer'
+    },
+    title: {
+       padding: 5,
+    },
+    date: {
+        color: palette.text.subtitle
+    },
+    modal: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        padding: 20,
+        width: 400,
+        backgroundColor: `${palette.background.white} !important`,
+        transform: 'translate(-50%, -50%)',
     }
 });
 

@@ -1,8 +1,11 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
+import { Grid, IconButton } from "@material-ui/core";
 import Comment from "../Comment";
+import { useStyles } from "./styles";
 
 const CommentsWrapper = ({ comments }) => {
+    const classes = useStyles();
+
     return (
         <Grid
             container
@@ -21,6 +24,9 @@ const CommentsWrapper = ({ comments }) => {
                     />
                 ))
             }
+            <div className={classes.newComment}>
+                <IconButton disableRipple className={classes.plus}> + </IconButton>
+            </div>
         </Grid>
     );
 }
