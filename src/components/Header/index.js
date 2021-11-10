@@ -128,13 +128,9 @@ const Header = ({ title, zoomIndex }) => {
           </Grid>
 
           { /* Switch Faculties */ }
-          <Grid   
-            direction="column"
-            justifyContent="center"
-            alignItems="center" className={ clsx(classes.container, classes.switch) }
-          >
+          <Grid className={ clsx(classes.container, classes.switch) }>
             {faculties.map((faculty) => (
-            <Grid item>
+            <Grid item key={faculty.abreviation}>
               <Link href={faculty.path} className={classes.textBtn}>
               <Bar vertical>
                 <Tooltip title={faculty.name} placement="left" arrow>

@@ -46,7 +46,6 @@ export const ScrollZoom = (container, max_scale, min_scale, setScale) => {
 			// Apply zoom
 			scale -= 0.1
 			scale = Math.max(min_scale, scale)
-			console.log(scale)
 			// Calculate x and y based on zoom
 			pos.x = -zoom_target.x * scale + zoom_point.x
 			pos.y = -zoom_target.y * scale + zoom_point.y

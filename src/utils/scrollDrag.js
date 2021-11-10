@@ -9,7 +9,6 @@ export const ScrollDrag = (container) => {
 	* - container: DOM element
 	*
 	*/
-
     var pos = { top: 0, left: 0, x: 0, y: 0 };
 
     const mouseDownHandler = (e) => {

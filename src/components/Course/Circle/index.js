@@ -10,7 +10,7 @@ const Circle = ({ course }) => {
 
     return (
         <Box components="div" className={classes.box}>
-            <Grid container>
+            <Grid>
                 <Grid item xs={12}>
                     <Intro course={course} />
                     { /*Action buttons*/ }

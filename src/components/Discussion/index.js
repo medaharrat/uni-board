@@ -17,7 +17,7 @@ const Discussion = ({ discussions }) => {
         <Box>
             <Typography>Discussions</Typography>
             {discussions.map((discussion, i) => (
-                <Accordion square expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)}>
+                <Accordion square expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)} key={discussion.id}>
                     <AccordionSummary aria-controls="panel-content" id="panel-header">
                         <Typography>{ discussion.title }</Typography>
                     </AccordionSummary>

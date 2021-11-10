@@ -8,6 +8,7 @@ import { GlobalProvider } from '../context/GlobalProvider';
 const Index = () => {
 
   return (
+    <NoSsr>
     <GlobalProvider>
       {/*<Router>
         <Routes>
@@ -19,6 +20,7 @@ const Index = () => {
 
        <Board />
     </GlobalProvider>
+    </NoSsr>
   )
 }
 
