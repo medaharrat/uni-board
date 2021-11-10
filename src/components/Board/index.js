@@ -23,19 +23,17 @@ const Board = () => {
     return (    
         <div className={classes.container}>
             <Header title="2020/2021" zoomIndex={scale}/>
-            <div className={classes.content}>
-                <div id="container">
-                    <Grid
-                        container
-                        direction="column"
-                        alignItems="center"
-                        justifyContent="center"
-                    >
-                        {courses.map(course => (
-                            <Course course={course} key={course.id}/>
-                        ))}
-                    </Grid>
-                </div>
+            <div id="container" className={classes.content}>
+                <Grid
+                    container
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    {courses.map(course => (
+                        <Course course={course} key={course.id}/>
+                    ))}
+                </Grid>
             </div>
         </div>
     );
