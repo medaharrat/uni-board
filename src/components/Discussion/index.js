@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import {
     Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
 } from "@material-ui/core";
-import { useStyles } from "./styles";
+import { useStyles} from "./styles";
 import Comments from "../Comments";
+import TextField from '@mui/material/TextField';
+import CustomButton from "../CustomButton";
+
+//import * as React from 'react';
+
 
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
@@ -49,13 +54,32 @@ const Discussion = ({ discussions }) => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box className={classes.modal}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Box  className={classes.modal}>
+                    <Typography  id="modal-modal-title" variant="h6" component="h2">
                         Add a new discussion
                     </Typography>
-                    <Typography id="modal-modal-description">
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    <div>
+                        <br/>
+                    </div>
+                    <Grid 
+                            container
+                            direction="column"
+                            justifyContent="space-between"
+                            alignItems="right"
+                    >
+                    <TextField
+                             id="outlined-multiline-static"
+                             label="Write here"
+                             multiline
+                             rows={10}
+                             variant="outlined"
+                    />
+                    <div>
+                        <br/>
+                        <CustomButton color='primary' text="Add Discussion" /> 
+                    </div>                    
+                                        
+                    </Grid>
                 </Box>
             </Modal>
         </Box>

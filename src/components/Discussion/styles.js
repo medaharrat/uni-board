@@ -17,6 +17,7 @@ const useStyles = makeStyles({
         color: palette.text.subtitle
     },
     modal: {
+        fontFamily: 'Poppins',
         position: 'absolute',
         top: '50%',
         left: '50%',

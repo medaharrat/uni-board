@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     backgroundColor: palette.button.red,
   },
   default: {
-    backgroundColor: palette.button.gray,
+    backgroundColor: palette.button.light_gray,
   },
   
 });
