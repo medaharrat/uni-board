@@ -6,12 +6,15 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from "./styles";
 import Delete from "@material-ui/icons/Delete";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Favorite } from "@material-ui/icons";
 const Comment = ({ title, color }) => {
     const commentStyles = { color };
     const classes = useStyles(commentStyles);
@@ -42,12 +45,12 @@ const Comment = ({ title, color }) => {
                 <CardActions
                     style={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                    <IconButton aria-label="like">
-                        <FavoriteIcon />
+                    <IconButton aria-label="like" >
+                        <FavoriteBorderRoundedIcon className={classes.icon} />
                     </IconButton>
-                    <IconButton>
+                    {/* <IconButton>
                         <Delete id="delete-button" color="disabled" />
-                    </IconButton>
+                    </IconButton> */}
                 </CardActions>
 
             </Card>

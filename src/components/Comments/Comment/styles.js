@@ -3,9 +3,12 @@ import palette from '../../../static/palette';
 
 const useStyles = makeStyles({
     comment: {
-        backgroundColor: styles => (styles.color),  
+        backgroundColor: palette.background.light,  
         margin: 5,
         userSelect: 'none',
+    },
+    icon:{
+        color: palette.background.dark_blue2,
     }
 });
 
