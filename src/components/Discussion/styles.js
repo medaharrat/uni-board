@@ -6,7 +6,7 @@ const useStyles = makeStyles({
         backgroundColor: `${palette.background.gray} !important`,
         color: palette.text.dark_blue2,
         border: `1px dashed `,
-        borderColor: palette.text.light_blue2,
+        borderColor: palette.text.dark_blue2,
         padding: 10,
         marginTop: 5,
         textAlign: 'center',
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
         BackgroundColor: palette.background.dark_blue2,
         border:`1px solid grey`,
         borderRadius: 15,
-
+        marginTop: 5,
     }
 });
 
