@@ -25,6 +25,7 @@ const useStyles = makeStyles({
         width: 400,
         backgroundColor: `${palette.background.white} !important`,
         transform: 'translate(-50%, -50%)',
+        borderRadius:5,
     }
 });
 
