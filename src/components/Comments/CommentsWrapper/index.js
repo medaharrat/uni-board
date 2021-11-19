@@ -12,6 +12,7 @@ const CommentsWrapper = ({ comments }) => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
+            
         >
             {
                 comments.map((comment) => (

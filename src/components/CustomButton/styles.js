@@ -8,12 +8,12 @@ const useStyles = makeStyles({
     padding: '1px 7px 2px',
     letterSpacing: '3px',
     '&:hover': {
-      backgroundColor: palette.button.green,
+      backgroundColor: palette.button.blue,
       color: palette.text.light_gray,
     },
   },
   register: {
-    backgroundColor: palette.button.green,
+    backgroundColor: palette.button.blue,
     color: palette.text.light_gray,
   },
   cancel: {

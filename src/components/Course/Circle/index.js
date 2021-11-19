@@ -20,7 +20,7 @@ const Circle = ({ course }) => {
                 </Grid>
             </Grid>
 
-            <Divider light className={classes.divider}/>
+            {/* <Divider light className={classes.divider}/> */}
             { /*Discussions*/ }
             <Discussions discussions={course.discussions}/>
         </Box>

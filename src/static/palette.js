@@ -11,7 +11,7 @@ const palette = {
     dark_blue2: '#1c2657',
     light_blue: '#32507a',
     light_blue2: '#5a89a5',
-    light_gray :'#d7d7d7',
+    light_gray :'#fdfdfd',
 
     //faculty of Humanities
     dark_red: '#5d1222',
