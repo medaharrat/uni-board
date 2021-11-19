@@ -33,10 +33,7 @@ const Discussion = ({ discussions }) => {
                 <Grid item><Typography variant="body1" className={classes.title}>Discussions</Typography></Grid>
 
             </Grid>
-            <div className={classes.newDiscussion} onClick={handleOpen}>
-                <Typography> Add new discussion </Typography>
-            </div>
-
+            
             {discussions.map((discussion, i) => (
                 <Accordion className= {classes.accordion} square expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)} key={discussion.id}>
                     <AccordionSummary aria-controls="panel-content" id="panel-header">
@@ -55,7 +52,10 @@ const Discussion = ({ discussions }) => {
                     </AccordionDetails>
                 </Accordion>
             ))}
-            
+            <div className={classes.newDiscussion} onClick={handleOpen}>
+                <Typography> Add new discussion </Typography>
+            </div>
+
             <Modal
                 open={open}
                 onClose={handleClose}
