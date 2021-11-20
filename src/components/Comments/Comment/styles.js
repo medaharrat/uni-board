@@ -3,10 +3,9 @@ import palette from '../../../static/palette';
 
 const useStyles = makeStyles({
     comment: {
-        backgroundColor: palette.background.light,  
+        backgroundColor: palette.comment.c3,  
         margin: 5,
-        height: 200,
-        width: 200,
+    
         userSelect: 'none',
     },
     icon:{

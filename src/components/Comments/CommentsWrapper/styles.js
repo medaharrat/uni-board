@@ -8,8 +8,8 @@ const useStyles = makeStyles({
         borderColor: palette.background.light_blue,
         padding: 10,
         marginTop: 5,
-        height: 200,
-        width: 200,
+        height: 190,
+        width: 190,
         textAlign: 'center',
         cursor: 'pointer'
     },
@@ -39,33 +39,34 @@ const useStyles = makeStyles({
         color: palette.text.dark_blue2,
     },
     comment1: {
-        backgroundColor: palette.comment.c0,  
-        margin: 5,
-        height: 50,
-        width: 50,
-        userSelect: 'none',
-    },
-    comment2: {
         backgroundColor: palette.comment.c1,  
         margin: 5,
         height: 50,
         width: 50,
         userSelect: 'none',
     },
-    comment3: {
+    comment2: {
         backgroundColor: palette.comment.c2,  
         margin: 5,
         height: 50,
         width: 50,
         userSelect: 'none',
     },
-    comment4: {
+    comment3: {
         backgroundColor: palette.comment.c3,  
         margin: 5,
         height: 50,
         width: 50,
         userSelect: 'none',
     },
+    comment4: {
+        backgroundColor: palette.comment.c4,  
+        margin: 5,
+        height: 50,
+        width: 50,
+        userSelect: 'none',
+    },
+   
 });
 
 export { useStyles };

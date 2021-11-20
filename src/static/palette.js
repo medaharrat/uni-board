@@ -72,12 +72,12 @@ const palette = {
     blue: "#0B2244"
   },
   comment: {
-    c0: "#d7d7d7",
-    c1: "#bcbdb9",
-    c2: "#97a796",
-    c3: "#c7dd9a",
-    c4 :'#bdaf70',
-   
+    c1: "#e5d7c6",
+    c2: "#bcbdb9",
+    c3: "#bbc8cf",
+    c4: "#bfd7bd",
+
+    
   }
  
 };
