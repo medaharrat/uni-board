@@ -23,8 +23,8 @@ const useStyles = makeStyles({
        backgroundColor: `${palette.background.light_gray} !important`,
        
     },
-    date: {
-        color: palette.text.subtitle
+    text: {
+        color: palette.text.light_blue
     },
     modal: {
         fontFamily: 'Poppins',
@@ -42,7 +42,8 @@ const useStyles = makeStyles({
     },
     accordion: {
         BackgroundColor: palette.background.dark_blue2,
-        border:`1px solid grey`,
+        border:`1px solid `,
+        borderColor: palette.background.light_blue2,
         borderRadius: 15,
         marginTop: 5,
     }

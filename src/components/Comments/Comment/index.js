@@ -20,7 +20,7 @@ const Comment = ({ title, color }) => {
     const classes = useStyles(commentStyles);
 
     return (
-        <Grid item lg={20} md={4} sm={6} xs={12}>
+        <Grid item>
             <Card className={classes.comment}>
                 <CardHeader
                     avatar={

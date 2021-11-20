@@ -38,8 +38,8 @@ const initialState = {
                     id: 1, 
                     title: "Course teachers", 
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40]},
                     ],
                     date: "01/01/2018"
                 }
@@ -54,8 +54,8 @@ const initialState = {
                     id: 1, 
                     title: "Course teachers", 
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "10/09/2021", color: "#f5f5dc", size: [40, 40]},
+                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "16/09/2021", color: "#f5f5dc", size: [40, 40]},
                     ],
                     date: "01/01/2018"
                 }

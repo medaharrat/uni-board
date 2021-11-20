@@ -70,6 +70,14 @@ const palette = {
     red: "#7B1B1B",
     gray :'#3b3b3b',
     blue: "#0B2244"
+  },
+  comment: {
+    c0: "#d7d7d7",
+    c1: "#bcbdb9",
+    c2: "#97a796",
+    c3: "#c7dd9a",
+    c4 :'#bdaf70',
+   
   }
  
 };

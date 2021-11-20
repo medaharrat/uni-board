@@ -7,7 +7,7 @@ import Comments from "../Comments";
 import TextField from '@mui/material/TextField';
 import CustomButton from "../CustomButton";
 import MessageRoundedIcon from '@material-ui/icons/MessageRounded';//import * as React from 'react';
-
+import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
 
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
@@ -29,13 +29,13 @@ const Discussion = ({ discussions }) => {
                 direction="row"
                 alignItems="center"
             >
-                <Grid item><MessageRoundedIcon className={classes.icon}/></Grid>
+                <Grid item><MessageRoundedIcon className={classes.icon} /></Grid>
                 <Grid item><Typography variant="body1" className={classes.title}>Discussions</Typography></Grid>
 
             </Grid>
-            
+
             {discussions.map((discussion, i) => (
-                <Accordion className= {classes.accordion} square expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)} key={discussion.id}>
+                <Accordion className={classes.accordion} square expanded={expanded === `panel${i}`} onChange={handleChange(`panel${i}`)} key={discussion.id}>
                     <AccordionSummary aria-controls="panel-content" id="panel-header">
                         <Grid
                             container
@@ -43,8 +43,10 @@ const Discussion = ({ discussions }) => {
                             justifyContent="space-between"
                             alignItems="center"
                         >
-                            <Grid item><Typography>{discussion.title}</Typography></Grid>
-                            <Grid item className={classes.date}><Typography variant="body2">{discussion.date}</Typography></Grid>
+                            {/* <Grid item><ArrowRightRoundedIcon/></Grid> */}
+
+                            <Grid item><Typography className={classes.text}>{discussion.title}</Typography></Grid>
+                            <Grid item className={classes.text}><Typography variant="body2">{discussion.date}</Typography></Grid>
                         </Grid>
                     </AccordionSummary>
                     <AccordionDetails>
