@@ -3,7 +3,7 @@ import {
     Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
 } from "@material-ui/core";
 import Comment from "../Comment";
-import TextField from '@mui/material/TextField';
+import TextField from '@material-ui/core/TextField';
 import CustomButton from "../../CustomButton";
 import IconButton from '@material-ui/core/IconButton';
 

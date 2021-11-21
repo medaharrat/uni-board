@@ -16,7 +16,6 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.10",
     "@material-ui/styles": "^4.11.3",
-    "@mui/material": "^5.1.0",
     "ansi-regex": "^5.0.1",
     "clsx": "^1.1.1",
     "jquery": "^3.6.0",

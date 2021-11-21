@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import {
-    Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
+    TextField, Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 import Comments from "../Comments";
-import TextField from '@mui/material/TextField';
 import CustomButton from "../CustomButton";
 import MessageRoundedIcon from '@material-ui/icons/MessageRounded';//import * as React from 'react';
 import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';

@@ -3,7 +3,7 @@ import palette from '../../../static/palette';
 
 const useStyles = makeStyles({
     comment: {
-        backgroundColor: palette.comment.c3,  
+        backgroundColor: palette.comment.c1,  
         margin: 5,
     
         userSelect: 'none',
