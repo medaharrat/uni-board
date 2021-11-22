@@ -9,20 +9,31 @@ const initialState = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
-                    id: 1, 
-                    title: "Course teachers", 
+                    id: 1,
+                    title: "Course teachers",
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 },
                 {
-                    id: 2, 
-                    title: "Course material", 
+                    id: 2,
+                    title: "Course material",
                     comments: [
-                        {id: 1, comment: "Material is really interesting!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Meeh!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        { id: 1, comment: "Material is really interesting!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Meeh!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
+            fileGroup: [
+                {
+                    id: 1,
+                    title: "Materials",
+                    files: [
+                        { id: 1, name: "Lecture 1",  date: "25/01/2018", src: "", size: [40, 40] },
+                        { id: 2, name: "Lecture 2",  date: "25/01/2018", src: "", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -35,11 +46,22 @@ const initialState = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
-                    id: 1, 
-                    title: "Course teachers", 
+                    id: 1,
+                    title: "Course teachers",
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40]},
+                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
+            fileGroup: [
+                {
+                    id: 1,
+                    title: "Recordings",
+                    files: [
+                        { id: 1, name: "Lecture 1",  date: "25/01/2018", src: "", size: [40, 40] },
+                        { id: 2, name: "Lecture 2",  date: "25/01/2018", src: "", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -51,11 +73,22 @@ const initialState = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
-                    id: 1, 
-                    title: "Course teachers", 
+                    id: 1,
+                    title: "Course teachers",
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "10/09/2021", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "16/09/2021", color: "#f5f5dc", size: [40, 40]},
+                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "10/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "16/09/2021", color: "#f5f5dc", size: [40, 40] },
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
+            fileGroup: [
+                {
+                    id: 1,
+                    title: "Lectures",
+                    files: [
+                        { id: 1, name: "Lecture 1",  date: "25/01/2018", src: "", size: [40, 40] },
+                        { id: 2, name: "Lecture 2",  date: "25/01/2018", src: "", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -68,11 +101,22 @@ const initialState = {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
-                    id: 1, 
-                    title: "Course teachers", 
+                    id: 1,
+                    title: "Course teachers",
                     comments: [
-                        {id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
-                        {id: 2, comment: "Awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40]},
+                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                    ],
+                    date: "01/01/2018"
+                }
+            ],
+            fileGroup: [
+                {
+                    id: 1,
+                    title: "Recordings",
+                    files: [
+                        { id: 1, name: "Lecture 1",  date: "25/01/2018", src: "", size: [40, 40] },
+                        { id: 2, name: "Lecture 2",  date: "25/01/2018", src: "", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -85,15 +129,15 @@ const initialState = {
 export const UserContext = createContext(initialState);
 
 // Provider Component
-export const GlobalProvider = ({ children }) =>{
+export const GlobalProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     return (
         <UserContext.Provider value={{
-            courses: state.courses, 
+            courses: state.courses,
         }}>
-            { children }    
+            {children}
         </UserContext.Provider>
     )
 }

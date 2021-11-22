@@ -4,6 +4,7 @@ import { Box, Divider, Grid } from "@material-ui/core";
 import Intro from "../Intro";
 import Discussions from "../../Discussion";
 import CustomButton from "../../CustomButton";
+import FileGroups from "../../FileGroup";
 
 const Circle = ({ course }) => {
     const classes = useStyles();
@@ -23,6 +24,8 @@ const Circle = ({ course }) => {
             {/* <Divider light className={classes.divider}/> */}
             { /*Discussions*/ }
             <Discussions discussions={course.discussions}/>
+            <FileGroups fileGroups={course.fileGroup}/>
+
         </Box>
     );
 }
