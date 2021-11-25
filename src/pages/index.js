@@ -3,13 +3,13 @@ import { NoSsr } from '@material-ui/core';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { routes } from "./routes";
 import Board from "../components/Board";
-import { GlobalProvider } from '../context/GlobalProvider';
+import { AuthProvider } from "../context";
 
 const Index = () => {
 
   return (
     <NoSsr>
-    <GlobalProvider>
+    <AuthProvider>
       {/*<Router>
         <Routes>
           {routes.map((route) => (
@@ -19,7 +19,7 @@ const Index = () => {
           </Router>*/}
 
        <Board />
-    </GlobalProvider>
+    </AuthProvider>
     </NoSsr>
   )
 }

@@ -12,6 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Link from '@material-ui/core/Link';
+import { useAuthState, logout, useAuthDispatch } from '../../context';
 import { useStyles } from './styles';
 import Bar from './Bar';
 import clsx from  'clsx';
@@ -25,7 +26,19 @@ const Header = ({ title, zoomIndex }) => {
     {name: "Faculty of Economics", path: "/gtk", abreviation: "GTK"},
   ]
   const isAccountMenuOpen = Boolean(anchorEl);
+  
+  // Read dispatch method from context
+  const dispatch = useAuthDispatch() 
+  // Read user details from context
+  const userDetails = useAuthState() 
 
+  // Log out
+  const handleLogout = () => {
+    // Call the logout action
+    logout(dispatch) 
+    // Navigate on logout
+    navigate('/') 
+  }
   const handleAccountMenuOpen = (e) => {
     setAnchorEl(e.currentTarget);
   };
