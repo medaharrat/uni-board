@@ -3,28 +3,33 @@ import palette from '../../static/palette';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(4),
+    marginTop: '25vh',
+    paddingBottom: 50,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: '30px',
     backgroundColor: palette.background.default,
-    borderradius: '4px',
+    borderRadius: '4px',
     boxShadow: palette.shadow,
-  },
-  avatar: {
-    margin: theme.spacing(2),
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    border: `1px solid ${palette.borders.light}`
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    marginBottom: 20
   },
-  signup: {
-    margin: theme.spacing(-2, 0, 2),
+  logo: {
+    marginLeft: 90,
+    marginTop: 30,
+    marginBottom: 40,
+    width: '50%',
+    
   },
+  progress: {
+    position: 'absolute',
+    width: '28.6%',
+    borderRadius: '4px',
+    marginTop: -30
+  }
 }));
 
 export { useStyles };

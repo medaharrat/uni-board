@@ -1,17 +1,17 @@
 import React from "react";
+import Login from "../components/Login";
 import { NoSsr } from '@material-ui/core';
-import Board from "../components/Board";
 import { AuthProvider } from "../context";
 
-const Index = () => {
+const LoginPage = () => {
 
   return (
     <NoSsr>
-        <AuthProvider>
-            <Board />
-        </AuthProvider>
+      <AuthProvider>
+        <Login />
+      </AuthProvider>
     </NoSsr>
   )
 }
 
-export default Index;
+export default LoginPage;
