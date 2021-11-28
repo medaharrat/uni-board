@@ -1,6 +1,6 @@
-import React, { createContext, useReducer } from 'react';
-import AppReducer from './Reducer';
-
+/*
+* USE THIS LATER FOR COURSES INTIAL STATE FOR TESTING !!!
+*
 const initialState = {
     courses: [
         {
@@ -123,21 +123,4 @@ const initialState = {
             ],
         },
     ]
-}
-
-// Create Context
-export const UserContext = createContext(initialState);
-
-// Provider Component
-export const GlobalProvider = ({ children }) => {
-
-    const [state, dispatch] = useReducer(AppReducer, initialState);
-
-    return (
-        <UserContext.Provider value={{
-            courses: state.courses,
-        }}>
-            {children}
-        </UserContext.Provider>
-    )
-}
+}*/

@@ -6,6 +6,7 @@ import { useStyles } from "./styles";
 import Files from "../Files";
 import CustomButton from "../CustomButton";
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+
 const File = ({ fileGroups }) => {
     const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
@@ -18,9 +19,6 @@ const File = ({ fileGroups }) => {
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
-    
-
-
 
     return (
         <Box>
