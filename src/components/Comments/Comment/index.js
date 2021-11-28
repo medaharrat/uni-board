@@ -5,38 +5,24 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
-
-import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
-
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from "./styles";
 import Delete from "@material-ui/icons/Delete";
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const Comment = ({ title, color }) => {
+const Comment = ({ title, student, date, color }) => {
     const commentStyles = { color };
     const classes = useStyles(commentStyles);
-
+  
     return (
         <Grid item>
             <Card className={classes.comment}>
                 <CardHeader
-                    avatar={
-                        <Avatar sx={{ bgcolor: "red[500]" }} aria-label="recipe">
-                            D
-                        </Avatar>
-                    }
-                    action={
-                        <IconButton aria-label="settings">
-                            <MoreVertIcon />
-                        </IconButton>
-                    }
-                    title="Daniel"
-                    subheader="September 14, 2021"
+                    avatar={<Avatar>{student.name[0]}</Avatar>}
+                    title={student && student.name}
+                    subheader={date}
                 />
                 <CardContent>
-                    { /* <Typography gutterBottom>{props.title}</Typography> */}
                     <Typography variant="body2" component="p">
                         {title}
                     </Typography>
@@ -44,12 +30,12 @@ const Comment = ({ title, color }) => {
                 <CardActions
                     style={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                    <IconButton aria-label="like" >
+                    {/* <IconButton aria-label="like" >
                         <FavoriteBorderRoundedIcon className={classes.icon} />
-                    </IconButton>
-                    {/* <IconButton>
-                        <Delete id="delete-button" color="disabled" />
                     </IconButton> */}
+                    <IconButton>
+                        <Delete id="delete-button" color="disabled" />
+                    </IconButton>
                 </CardActions>
 
             </Card>

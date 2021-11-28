@@ -12,10 +12,6 @@ const useStyles = makeStyles({
       color: palette.text.light_gray,
     },
   },
-  register: {
-    backgroundColor: palette.button.blue,
-    color: palette.text.light_gray,
-  },
   cancel: {
     backgroundColor: palette.button.red,
   },

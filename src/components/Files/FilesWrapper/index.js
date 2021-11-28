@@ -4,7 +4,7 @@ import {
 } from "@material-ui/core";
 import File from "../File";
 import TextField from '@material-ui/core/TextField';
-import CustomButton from "../../CustomButton";
+import AppButton from "../../AppButton";
 import IconButton from '@material-ui/core/IconButton';
 
 import TextsmsRoundedIcon from '@material-ui/icons/TextsmsRounded';
@@ -52,7 +52,7 @@ const FilesWrapper = ({ files }) => {
 
 
             <div className={classes.newFile} onClick={handleOpen}>
-                <AddCircleOutlineRoundedIcon disableRipple className={classes.plus} > + </AddCircleOutlineRoundedIcon>
+                <AddCircleOutlineRoundedIcon className={classes.plus} > + </AddCircleOutlineRoundedIcon>
             </div>
 
             {/* NEW COMMENT MODAL */}
@@ -85,7 +85,7 @@ const FilesWrapper = ({ files }) => {
                         </div>
                         <div>
                             <br />
-                            <CustomButton color='primary' text="Add File" />
+                            <AppButton color='primary' text="Add File" />
                         </div>
 
                     </Grid>

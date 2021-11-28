@@ -7,9 +7,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
     margin: 20,
     backgroundColor: palette.background.light_gray,
-    borderRadius: 30,
-    borderWidth: 4,
-    
+    borderRadius: 15,
+    borderWidth: 2
   },  
   divider: {
     margin: theme.spacing(2),
@@ -18,7 +17,30 @@ const useStyles = makeStyles((theme) => ({
   },
   btnGroup: {
     padding: 10
-  }
+  },
+  registerBtn: {
+    width: '192px',
+    height: '34px',
+    padding: '1px 7px 2px',
+    letterSpacing: '3px',
+    '&:hover': {
+      backgroundColor: palette.button.blue,
+      color: palette.text.light_gray,
+    },
+    backgroundColor: palette.button.blue,
+    color: palette.text.light_gray,
+  },
+  success: {
+    backgroundColor: 'green',
+    '&:hover': {
+      backgroundColor: 'green !important',
+    },
+  },
+  buttonProgress: {
+    color: 'green',
+    position: 'absolute',
+    marginTop: 5,
+  },
 }));
 
 export { useStyles };

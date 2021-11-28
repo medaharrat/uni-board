@@ -11,18 +11,18 @@ const useStyles = makeStyles({
         marginTop: 5,
         textAlign: 'center',
         cursor: 'pointer',
-        borderRadius: 15,
+        borderRadius: 10,
 
     },
     title: {
-       padding: 5,
-       fontFamily: 'Poppins',
-       fontStyle :'bold',
-       fontSize: 25,
-       color: palette.text.dark_blue2,
-       backgroundColor: `${palette.background.light_gray} !important`,
-       
-    },
+        padding: 5,
+        fontFamily: 'Poppins',
+        fontStyle :'bold',
+        fontSize: 18,
+        color: palette.text.dark_blue2,
+        backgroundColor: `${palette.background.light_gray} !important`,
+        marginTop: 10
+     },
     text: {
         color: palette.text.light_blue
     },
@@ -39,13 +39,21 @@ const useStyles = makeStyles({
     },
     icon: {
         color: palette.background.dark_blue2,
+        fontSize: 18,
+        marginTop: 15,
+        marginRight: 7
     },
     accordion: {
         BackgroundColor: palette.background.dark_blue2,
         border:`1px solid `,
+        boxShadow: 'none',
         borderColor: palette.background.light_blue2,
-        borderRadius: 15,
+        borderRadius: 10,
         marginTop: 5,
+    },
+    date: {
+        color: palette.text.subtitle,
+        fontStyle: 'italic'
     }
 });
 

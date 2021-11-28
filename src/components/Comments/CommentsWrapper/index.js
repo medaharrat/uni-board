@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import {
-    Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
+    Box, Accordion, TextField, IconButton, Typography, Modal, Grid, Card
 } from "@material-ui/core";
 import Comment from "../Comment";
-import TextField from '@material-ui/core/TextField';
-import CustomButton from "../../CustomButton";
-import IconButton from '@material-ui/core/IconButton';
-
-import TextsmsRoundedIcon from '@material-ui/icons/TextsmsRounded';
+import AppButton from "../../AppButton";
 import { useStyles } from "./styles";
 import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
-import Card from '@material-ui/core/Card';
 
 const CommentsWrapper = ({ comments }) => {
     const classes = useStyles();
@@ -37,8 +32,8 @@ const CommentsWrapper = ({ comments }) => {
                 comments.map((comment) => (
                     <Comment
                         title={comment.comment}
-                        height={comment.size[0]}
-                        width={comment.size[0]}
+                        student={comment.student}
+                        date={comment.date}
                         color={comment.color}
                         key={comment.id}
                     />
@@ -47,11 +42,10 @@ const CommentsWrapper = ({ comments }) => {
 
 
             <div className={classes.newComment} onClick={handleOpen}>
-                <AddCircleOutlineRoundedIcon disableRipple className={classes.plus} > + </AddCircleOutlineRoundedIcon>
+                <AddCircleOutlineRoundedIcon  className={classes.plus} > + </AddCircleOutlineRoundedIcon>
             </div>
 
             {/* NEW COMMENT MODAL */}
-
 
             <Modal
                 open={open}
@@ -103,7 +97,7 @@ const CommentsWrapper = ({ comments }) => {
                         </div>
                         <div>
                             <br />
-                            <CustomButton className={classes.modal} text="Post comment" />
+                            <AppButton className={classes.modal} text="Post comment" />
                         </div>
 
 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
-    TextField, Box, Accordion, AccordionSummary, AccordionDetails, Typography, Modal, Grid
+    TextField, Box, Accordion, AccordionSummary, FormControl,
+    AccordionDetails, Typography, Modal, Grid, Button
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 import Comments from "../Comments";
-import CustomButton from "../CustomButton";
-import MessageRoundedIcon from '@material-ui/icons/MessageRounded';//import * as React from 'react';
-import ArrowRightRoundedIcon from '@material-ui/icons/ArrowRightRounded';
+import MessageRoundedIcon from '@material-ui/icons/MessageRounded';
+import clsx from "clsx";
 
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
@@ -44,8 +44,8 @@ const Discussion = ({ discussions }) => {
                         >
                             {/* <Grid item><ArrowRightRoundedIcon/></Grid> */}
 
-                            <Grid item><Typography className={classes.text}>{discussion.title}</Typography></Grid>
-                            <Grid item className={classes.text}><Typography variant="body2">{discussion.date}</Typography></Grid>
+                            <Grid item><Typography className={classes.text}><b>{discussion.title}</b></Typography></Grid>
+                            <Grid item className={clsx(classes.text, classes.date)}><Typography variant="body2">{discussion.date}</Typography></Grid>
                         </Grid>
                     </AccordionSummary>
                     <AccordionDetails>
@@ -60,35 +60,39 @@ const Discussion = ({ discussions }) => {
             <Modal
                 open={open}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                aria-labelledby="modal-discussion"
+                aria-describedby="modal-discussion"
             >
                 <Box className={classes.modal}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    <Typography className={classes.modalTitle} variant="h6" component="h2">
                         Add a new discussion
                     </Typography>
-                    <div>
-                        <br />
-                    </div>
-                    <Grid
-                        container
-                        direction="column"
-                        justifyContent="space-between"
-                        alignItems="right"
-                    >
-                        <TextField
-                            id="outlined-multiline-static"
-                            label="Write here"
-                            multiline
-                            rows={10}
-                            variant="outlined"
-                        />
-                        <div>
-                            <br />
-                            <CustomButton color='primary' text="Add Discussion" />
-                        </div>
+                    <div cassName={classes.modalContent} >
+                        <FormControl fullWidth variant="outlined" className={classes.input}>
+                            <TextField id="outlined-basic" label="Title" variant="outlined" />
+                        </FormControl>
+                        <FormControl fullWidth variant="outlined" className={classes.input}>
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Write here"
+                                multiline
+                                rows={10}
+                                variant="outlined"
+                            />
+                        </FormControl>
+                        <FormControl fullWidth className={classes.input}>
+                            <Button 
+                                color="primary"
+                                variant="contained"
+                                disableElevation
+                                disableRipple
+                                className={classes.button}
+                            >
+                                Add
+                            </Button>
+                        </FormControl>
 
-                    </Grid>
+                    </div>
                 </Box>
             </Modal>
         </Box>

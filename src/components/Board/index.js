@@ -15,14 +15,15 @@ const Board = () => {
         {
             id: 1,
             name: "Interactive Media Design",
+            registered: 1,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
                     id: 1,
                     title: "Course teachers",
                     comments: [
-                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
-                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 1, comment: "Teachers are awesome!", student: {name: 'Josh'}, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student: {name: 'Anna'}, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 },
@@ -30,8 +31,8 @@ const Board = () => {
                     id: 2,
                     title: "Course material",
                     comments: [
-                        { id: 1, comment: "Material is really interesting!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
-                        { id: 2, comment: "Meeh!", student_id: 1, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 1, comment: "Material is really interesting!", student: {name: 'Josh'}, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Meeh!", student: {name: 'Karim'}, course_id: 1, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -58,8 +59,8 @@ const Board = () => {
                     id: 1,
                     title: "Course teachers",
                     comments: [
-                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
-                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 1, comment: "Teachers are awesome!", student: {name: 'Sandra'}, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student: {name: 'Sonia'}, course_id: 2, date: "01/09/2021", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -85,8 +86,8 @@ const Board = () => {
                     id: 1,
                     title: "Course teachers",
                     comments: [
-                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 3, date: "10/09/2021", color: "#f5f5dc", size: [40, 40] },
-                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 3, date: "16/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 1, comment: "Teachers are awesome!", student: {name: 'Daniel'}, course_id: 3, date: "10/09/2021", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student: {name: 'Jason'}, course_id: 3, date: "16/09/2021", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }
@@ -107,14 +108,15 @@ const Board = () => {
         {
             id: 4,
             name: "Software Technology",
+            registered: 1,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             discussions: [
                 {
                     id: 1,
                     title: "Course teachers",
                     comments: [
-                        { id: 1, comment: "Teachers are awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
-                        { id: 2, comment: "Awesome!", student_id: 1, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 1, comment: "Teachers are awesome!", student: {name: 'Steven'}, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
+                        { id: 2, comment: "Awesome!", student: {name: 'Mohamed'}, course_id: 4, date: "25/01/2018", color: "#f5f5dc", size: [40, 40] },
                     ],
                     date: "01/01/2018"
                 }

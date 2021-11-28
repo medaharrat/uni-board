@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     comment: {
         backgroundColor: palette.comment.c1,  
         margin: 5,
-    
+        boxShadow: 'none',
         userSelect: 'none',
     },
     icon:{

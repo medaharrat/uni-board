@@ -4,8 +4,9 @@ import {
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 import Files from "../Files";
-import CustomButton from "../CustomButton";
+import AppButton from "../AppButton";
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import clsx from 'clsx';
 
 const File = ({ fileGroups }) => {
     const [expanded, setExpanded] = useState(false);
@@ -44,8 +45,8 @@ const File = ({ fileGroups }) => {
                         >
                             {/* <Grid item><ArrowRightRoundedIcon/></Grid> */}
 
-                            <Grid item><Typography className={classes.text}>{fileGroup.title}</Typography></Grid>
-                            <Grid item className={classes.text}><Typography variant="body2">{fileGroup.date}</Typography></Grid>
+                            <Grid item><Typography className={classes.text}><b>{fileGroup.title}</b></Typography></Grid>
+                            <Grid item className={clsx(classes.text, classes.date)}><Typography variant="body2">{fileGroup.date}</Typography></Grid>
                         </Grid>
                     </AccordionSummary>
                     <AccordionDetails>
@@ -84,7 +85,7 @@ const File = ({ fileGroups }) => {
                         />
                         <div>
                             <br />
-                            <CustomButton color='primary' text="Add new group" />
+                            <AppButton color='primary' text="Add new group" />
                         </div>
 
                     </Grid>

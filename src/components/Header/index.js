@@ -68,7 +68,7 @@ const Header = ({ title, zoomIndex }) => {
             </Typography>
           </Bar>
           
-          { /* The Tools Bar */ }
+          { /* The Tools Bar 
           <Grid className={ clsx(classes.container, classes.tools) }>
             <Grid item>
               <Bar vertical>
@@ -90,10 +90,12 @@ const Header = ({ title, zoomIndex }) => {
               </Bar>
             </Grid>
           </Grid>
+          */ }
         </Grid>
 
         <Grid item>
           <Bar>
+            {/* 
             <Tooltip title="Notifications" placement="bottom" arrow>
               <IconButton disableRipple className={classes.iconBtn} color="primary">
                 <NotificationsIcon className={classes.icon} />
@@ -104,6 +106,7 @@ const Header = ({ title, zoomIndex }) => {
                 <SettingsIcon className={classes.icon} />
               </IconButton>
             </Tooltip>
+            */}
             <Tooltip title="Account" placement="bottom" arrow>
               <IconButton 
                 disableRipple 
