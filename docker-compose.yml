@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  backend:
+    image: leftazs/uniboard-backend:latest
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: persistence
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"  # delete this for release versions
+  client:
+    image: client
+    build: .
+    ports:
+      - "3000:3000"
+volumes:
+  database-data:
+networks:
+  default:
+    external:
+      name: external-network
