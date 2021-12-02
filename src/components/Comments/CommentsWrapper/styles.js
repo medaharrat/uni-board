@@ -2,28 +2,39 @@ import { makeStyles } from '@material-ui/core/styles';
 import palette from '../../../static/palette';
 
 const useStyles = makeStyles({
-    newComment: {
+    placeholder: {
         backgroundColor: `${palette.background.gray} !important`,
-        border: `1px dashed `,
-        borderColor: palette.background.light_blue,
+        border: `1px dashed ${palette.borders.dark}`,
+        borderRadius: 5,
         padding: 10,
         marginTop: 5,
         height: 190,
         width: 190,
         textAlign: 'center',
+        cursor: 'default'
+    },
+    newComment: {
+        color: 'blue',
+        textDecoration: 'underline',
         cursor: 'pointer'
     },
     plus: {
         '&:hover': {
             backgroundColor: 'transparent !important',
         },
-        color: palette.background.light_blue,
+        color: palette.borders.dark,
         height: 30,
         width: 30,
+        marginTop: '35%',
         align: 'center',
-
-    }
-    ,
+        cursor: 'pointer'
+    },
+    input: {
+        marginTop: 10,
+        '&:hover fieldset': {
+            borderColor: `grey !important`,
+        },
+    },
     modal: {
         fontFamily: 'Poppins',
         position: 'absolute',
@@ -37,36 +48,52 @@ const useStyles = makeStyles({
     },
     text: {
         color: palette.text.dark_blue2,
+        marginTop: 10,
+        padding: 10
     },
-    comment1: {
-        backgroundColor: palette.comment.c1,  
+    comment: {
         margin: 5,
         height: 50,
         width: 50,
-        userSelect: 'none',
     },
-    comment2: {
-        backgroundColor: palette.comment.c2,  
-        margin: 5,
-        height: 50,
-        width: 50,
-        userSelect: 'none',
+    c1: {
+        backgroundColor: palette.comment.c1,
     },
-    comment3: {
-        backgroundColor: palette.comment.c3,  
-        margin: 5,
-        height: 50,
-        width: 50,
-        userSelect: 'none',
+    c2: {
+        backgroundColor: palette.comment.c2,
     },
-    comment4: {
-        backgroundColor: palette.comment.c4,  
-        margin: 5,
-        height: 50,
-        width: 50,
-        userSelect: 'none',
+    c3: {
+        backgroundColor: palette.comment.c3,
     },
-   
+    c4: {
+        backgroundColor: palette.comment.c4,
+    },
+    selected: {
+        border: '1px dashed black'
+    },
+    modalTitle: {
+        padding: 10,
+        textAlign: 'center'
+    },
+    button: {
+        width: '100%',
+        height: '34px',
+        padding: '1px 7px 2px',
+    },
+    buttonProgress: {
+        color: 'green',
+        position: 'absolute',
+        marginTop: 5,
+        marginLeft: '47%'
+    },
+    colorIcon: {
+        background: 'transparent !important',
+    },
+    alert: {
+        marginTop: 70,
+        width: '400px',
+        margin: 'auto'
+    }
 });
 
 export { useStyles };

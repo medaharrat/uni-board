@@ -63,6 +63,7 @@ const palette = {
   },
   borders: {
     light: '#e5e5e5',
+    dark: '#9b9b9b',
     dark_blue: '#170b36'
   },
   button: {
@@ -76,8 +77,6 @@ const palette = {
     c2: "#bcbdb9",
     c3: "#bbc8cf",
     c4: "#bfd7bd",
-
-    
   }
  
 };

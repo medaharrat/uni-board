@@ -49,7 +49,7 @@ const Circle = ({ course }) => {
             {/* <Divider light className={classes.divider}/> */}
             { /*Discussions*/ }
             <Discussions discussions={course.discussions}/>
-            <FileGroups fileGroups={course.fileGroup}/>
+            { /*<FileGroups fileGroups={course.fileGroup}/>*/ }
 
         </Box>
     );

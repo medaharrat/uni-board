@@ -1,24 +1,65 @@
 import React, { useState } from "react";
 import {
-    Box, Accordion, TextField, IconButton, Typography, Modal, Grid, Card
+    Box, TextField, IconButton, Typography, Radio,
+    Modal, Grid, Card, FormControl, Button, CircularProgress
 } from "@material-ui/core";
 import Comment from "../Comment";
-import AppButton from "../../AppButton";
 import { useStyles } from "./styles";
-import AddCircleOutlineRoundedIcon from '@material-ui/icons/AddCircleOutlineRounded';
+import AddCommentIcon from '@material-ui/icons/AddComment';
+import clsx from 'clsx';
+import { getCurrentDate } from '../../../utils/currentDate';
 
 const CommentsWrapper = ({ comments }) => {
     const classes = useStyles();
-    const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
-
+    const [empty, setEmpty] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [values, setValues] = useState({
+        comment: "", 
+        student: {}, 
+        course: {}, 
+        date: "",
+        color: "#e5d7c6"
+    })
+    const students = [{name: 'Josh'}, {name: 'Ahmad'}, {name: 'Sandra'}, {name: 'Emma'}];
+    const courses = [
+        {title: 'Interactive Media Design'}, 
+        {title: 'Software Technology'}, 
+        {title: 'Machine Learning'}, 
+        {title: 'Foundations of Cyber Security'}
+    ];
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
+    const handleChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+        setEmpty(false);
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setLoading(true);
+        setTimeout(() => {
+            // Generate dummy student and course
+            values.date = getCurrentDate();
+            values.student = students[Math.floor(Math.random()*students.length)];
+            values.course = courses[Math.floor(Math.random()*courses.length)];
+            // Validate
+            if (values.comment.length == 0){
+                setEmpty(true)
+            } else {
+                setEmpty(false)
+                // Add new comment
+                console.log('> Add comment ' + JSON.stringify(values));
+                comments.push(values);
+                // Close the modal
+                setOpen(false);
+            }
+            // Stop loading
+            setLoading(false);
+        }, 1000)
+    }
 
     return (
         <Grid
@@ -26,24 +67,29 @@ const CommentsWrapper = ({ comments }) => {
             direction="row"
             justifyContent="flex-start"
             alignItems="flex-start"
-
         >
-            {
-                comments.map((comment) => (
-                    <Comment
-                        title={comment.comment}
-                        student={comment.student}
-                        date={comment.date}
-                        color={comment.color}
-                        key={comment.id}
-                    />
-                ))
+            { comments.length > 0 ? 
+                <>
+                    {comments.map((comment) => (
+                        <Comment
+                            title={comment.comment}
+                            student={comment.student}
+                            date={comment.date}
+                            color={comment.color}
+                            key={comment.comment}
+                        />
+                    ))}
+                    <div className={classes.placeholder}>
+                        <AddCommentIcon className={classes.plus} onClick={handleOpen}/>
+                    </div>
+                </> : (
+                    <Typography variant="body2">
+                        There is no comment for this discussion, add one
+                        {' '} 
+                        <span onClick={handleOpen} className={classes.newComment}>here</span>.
+                    </Typography>
+                )
             }
-
-
-            <div className={classes.newComment} onClick={handleOpen}>
-                <AddCircleOutlineRoundedIcon  className={classes.plus} > + </AddCircleOutlineRoundedIcon>
-            </div>
 
             {/* NEW COMMENT MODAL */}
 
@@ -54,68 +100,115 @@ const CommentsWrapper = ({ comments }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box className={classes.modal}>
-                    <Typography className={classes.text} id="modal-modal-title" variant="h6" component="h2">
-                        Add a new Comment
+                    <Typography className={classes.modalTitle} variant="h6" component="h2">
+                        Add a new comment
                     </Typography>
                     <div>
-                        <br />
+                        <FormControl fullWidth variant="outlined" className={classes.input}>
+                            <TextField
+                                id="comment"
+                                label="Write here"
+                                multiline
+                                rows={10}
+                                name="comment"
+                                variant="outlined"
+                                onChange={handleChange('comment')}
+                                required
+                                error={empty}
+                            />
+                        </FormControl>
+                        <Grid container   
+                            justifyContent="center"
+                            alignItems="center"
+                        >
+                            <Grid item xs={12}>
+                                <Typography className={classes.text}  >
+                                    Choose background color :
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <IconButton disableRipple className={classes.colorIcon}>
+                                    <Radio
+                                        checked={values.color === '#e5d7c6'}
+                                        onChange={handleChange('color')}
+                                        value="#e5d7c6"
+                                        name="comment-color-1"
+                                    />
+                                    <Card 
+                                        className={clsx(
+                                            classes.comment, 
+                                            classes.c1
+                                        )} 
+                                    />
+                                </IconButton>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <IconButton disableRipple className={classes.colorIcon}>
+                                    <Radio
+                                        checked={values.color === '#bcbdb9'}
+                                        onChange={handleChange('color')}
+                                        value="#bcbdb9"
+                                        name="comment-color-2"
+                                    />
+                                    <Card 
+                                        className={clsx(
+                                            classes.comment, 
+                                            classes.c2 
+                                        )} 
+                                    />
+                                </IconButton>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <IconButton disableRipple className={classes.colorIcon}>
+                                    <Radio
+                                        checked={values.color === '#bbc8cf'}
+                                        onChange={handleChange('color')}
+                                        value="#bbc8cf"
+                                        name="comment-color-3"
+                                    />
+                                    <Card 
+                                        className={clsx(
+                                            classes.comment, 
+                                            classes.c3 
+                                        )} 
+                                    />
+                                </IconButton>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <IconButton disableRipple className={classes.colorIcon}>
+                                    <Radio
+                                        checked={values.color === '#bfd7bd'}
+                                        onChange={handleChange('color')}
+                                        value="#bfd7bd"
+                                        name="comment-color-4"
+                                    />
+                                    <Card 
+                                        className={clsx(
+                                            classes.comment, 
+                                            classes.c4
+                                        )} 
+                                    />
+                                </IconButton>
+                            </Grid>
+                        </Grid>
+                        <FormControl fullWidth className={classes.input}>
+                            <Button 
+                                color="primary"
+                                variant="contained"
+                                disableElevation
+                                disableRipple
+                                className={classes.button}
+                                onClick={handleSubmit}
+                                disabled={loading || empty}
+                            >
+                                Add
+                            </Button>
+                            {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                        </FormControl>
                     </div>
-                    <Grid
-                        container
-                        direction="column"
-                        justifyContent="space-between"
-                        alignItems="right"
-                    >
-                        <TextField
-                            id="outlined-multiline-static"
-                            label="Write here"
-                            multiline
-                            rows={10}
-                            variant="outlined"
-                        />
-                        <div>
-                            <br />
-                            <Typography className={classes.text}  >
-                                Choose background color
-
-                            </Typography>
-                            <IconButton  >
-                                <Card className={classes.comment1} />
-                            </IconButton>
-                            <IconButton  >
-                            <Card className={classes.comment2} />
-                            </IconButton>
-                            <IconButton >
-                            <Card className={classes.comment3} />
-                            </IconButton>
-                            <IconButton  >
-                            <Card className={classes.comment4} />
-                            </IconButton>
-                            <IconButton  >
-                            <Card className={classes.comment5} />
-                            </IconButton>
-                        </div>
-                        <div>
-                            <br />
-                            <AppButton className={classes.modal} text="Post comment" />
-                        </div>
-
-
-
-
-
-                    </Grid>
                 </Box>
             </Modal>
-
-
-
-
-
-
         </Grid>
-
-
     );
 }
 

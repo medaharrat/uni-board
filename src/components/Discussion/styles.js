@@ -71,7 +71,12 @@ const useStyles = makeStyles({
         width: '100%',
         height: '34px',
         padding: '1px 7px 2px',
-    }
+    },
+    buttonProgress: {
+        color: 'green',
+        position: 'absolute',
+        marginTop: 5,
+    },
 });
 
 export { useStyles };

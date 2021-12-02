@@ -3,20 +3,27 @@ import { useStyles } from './styles';
 import { login, useAuthState, useAuthDispatch } from '../../context';
 import { 
   Button, TextField, InputAdornment, FormControl,
-  Link, Grid, Box, Typography, Container, LinearProgress 
+  Grid, Container, LinearProgress 
  } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import { useRouter } from 'next/router';
 import { Lock, Fingerprint } from '@material-ui/icons';
 
 const Login = () => {
   const classes = useStyles();
   const router = useRouter();
+  const [alert, setAlert] = useState({title: '', type: 'warning'});
   const [progress, setProgress] = useState('determinate');
   const [values, setValues] = useState({
     neptun: '',
     password: '',
   });
-  
+
+  const credentials = {
+    neptun: 'ABCDE',
+    password: 'admin123'
+  }
+
   // Get the dispatch method from the useDispatch custom hook
   const dispatch = useAuthDispatch()
 
@@ -33,8 +40,17 @@ const Login = () => {
       setProgress('indeterminate')
       setTimeout(
         () => {
-          router.push('/')
-          setProgress('determinate')
+          if (values.neptun == credentials.neptun && values.password == credentials.password) {
+            router.push('/')
+            setTimeout(
+              () => {
+                setProgress('determinate')
+              }, 1000
+            )
+          } else {
+            setAlert({...alert, title: "Invalid username or password."})
+            setProgress('determinate')
+          }
         }, 2000
       )
       } catch (error) {
@@ -96,23 +112,33 @@ const Login = () => {
           <FormControl component="fieldset"/>
         </Grid>
         <Grid item xs={9} >
-          <Link href="/board" underline="none">
-            <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              m={0}
-              disableRipple
-              disableElevation
-              onClick={handleLogin}
-            >
-              Sign In
-            </Button>
-          </Link>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            m={0}
+            disableRipple
+            disableElevation
+            disabled={progress == 'indeterminate'}
+            onClick={handleLogin}
+          >
+            Sign In
+          </Button>
         </Grid>
       </Grid>  
       </div>
+      {/* Alerts */}
+        {alert.title && (
+          <div className={classes.alert}>
+            <Alert
+              variant="outlined"
+              severity={alert.type}
+            >
+                { alert.title }
+            </Alert>    
+          </div>          
+        )}
     </Container>
   );
 }
