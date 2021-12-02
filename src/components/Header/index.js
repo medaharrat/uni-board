@@ -2,30 +2,25 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import SettingsIcon from '@material-ui/icons/Settings';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
-import CommentIcon from '@material-ui/icons/Comment';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Tooltip from '@material-ui/core/Tooltip';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Link from '@material-ui/core/Link';
 import { useAuthState, logout, useAuthDispatch } from '../../context';
 import { useStyles } from './styles';
+import { useRouter } from 'next/router';
 import Bar from './Bar';
 import clsx from  'clsx';
 
 const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = useState(null);
+  const router = useRouter();
   const faculties = [
     {name: "Faculty of Informatics", path: "/ik", abreviation: "IK"},
     {name: "Faculty of Sciences", path: "/ttk", abreviation: "TTK"},
     {name: "Faculty of Economics", path: "/gtk", abreviation: "GTK"},
   ]
-  const isAccountMenuOpen = Boolean(anchorEl);
   
   // Read dispatch method from context
   const dispatch = useAuthDispatch() 
@@ -35,16 +30,13 @@ const Header = ({ title, zoomIndex }) => {
   // Log out
   const handleLogout = () => {
     // Call the logout action
-    logout(dispatch) 
+    // logout(dispatch) 
     // Navigate on logout
-    navigate('/') 
+    router.push('/login')
+    setTimeout(() => {
+      alert('You\'re about to log out!');
+    }, 1000)
   }
-  const handleAccountMenuOpen = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-  const handleAccountMenuClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <div>
@@ -107,30 +99,18 @@ const Header = ({ title, zoomIndex }) => {
               </IconButton>
             </Tooltip>
             */}
-            <Tooltip title="Account" placement="bottom" arrow>
+            <Tooltip title="Logout" placement="bottom" arrow>
               <IconButton 
                 disableRipple 
                 className={classes.iconBtn} 
                 color="primary"
                 aria-controls="primary-search-account-menu"
-                onClick={handleAccountMenuOpen}
+                onClick={handleLogout}
               >
-                <AccountCircle className={classes.icon} />
+                <ExitToAppIcon className={classes.icon} />
               </IconButton>
             </Tooltip>
           </Bar>
-          { /* Dropdown */}
-          <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-            id="primary-search-account-menu"
-            keepMounted
-            open={isAccountMenuOpen}
-            onClose={handleAccountMenuClose}
-          >
-            <MenuItem>Profile</MenuItem>
-            <MenuItem>Logout</MenuItem>
-          </Menu>
 
           { /* Zoom index */ }
           <Grid className={ clsx(classes.container, classes.zoomIndex) }>

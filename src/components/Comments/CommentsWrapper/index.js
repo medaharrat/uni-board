@@ -11,6 +11,7 @@ import { getCurrentDate } from '../../../utils/currentDate';
 
 const CommentsWrapper = ({ comments }) => {
     const classes = useStyles();
+    const [comments_, setComments] = useState(comments);
     const [open, setOpen] = useState(false);
     const [empty, setEmpty] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -47,12 +48,15 @@ const CommentsWrapper = ({ comments }) => {
             values.course = courses[Math.floor(Math.random()*courses.length)];
             // Validate
             if (values.comment.length == 0){
-                setEmpty(true)
+                setEmpty(true);
+                setLoading(false);
             } else {
                 setEmpty(false)
                 // Add new comment
                 console.log('> Add comment ' + JSON.stringify(values));
-                comments.push(values);
+                comments_.push(values);
+                // Reset values
+                setValues({ ...values, comment: '' });
                 // Close the modal
                 setOpen(false);
             }
@@ -68,15 +72,22 @@ const CommentsWrapper = ({ comments }) => {
             justifyContent="flex-start"
             alignItems="flex-start"
         >
-            { comments.length > 0 ? 
+            { comments_.length > 0 ? 
                 <>
-                    {comments.map((comment) => (
+                    {comments_.map((comment) => (
                         <Comment
                             title={comment.comment}
                             student={comment.student}
                             date={comment.date}
                             color={comment.color}
                             key={comment.comment}
+                            handleDelete={() => {
+                                setTimeout(() => {
+                                    setComments(
+                                        comments_.filter((com) => com.comment !== comment.comment)
+                                    )
+                                }, 200)
+                            }}
                         />
                     ))}
                     <div className={classes.placeholder}>

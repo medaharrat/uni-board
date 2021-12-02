@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from "./styles";
 import Delete from "@material-ui/icons/Delete";
 
-const Comment = ({ title, student, date, color }) => {
+const Comment = ({ title, student, date, color, handleDelete }) => {
     const commentStyles = { color };
     const classes = useStyles(commentStyles);
   
@@ -24,7 +24,7 @@ const Comment = ({ title, student, date, color }) => {
                 />
                 <CardContent>
                     <Typography variant="body2" component="p">
-                        {title}
+                        {`${title.substr(0, 1).toUpperCase()}${title.substr(1, title.length)}`}
                     </Typography>
                 </CardContent>
                 <CardActions
@@ -33,7 +33,7 @@ const Comment = ({ title, student, date, color }) => {
                     {/* <IconButton aria-label="like" >
                         <FavoriteBorderRoundedIcon className={classes.icon} />
                     </IconButton> */}
-                    <IconButton>
+                    <IconButton onClick={handleDelete}>
                         <Delete id="delete-button" color="disabled" />
                     </IconButton>
                 </CardActions>

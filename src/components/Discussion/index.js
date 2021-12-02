@@ -13,6 +13,7 @@ import clsx from "clsx";
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
+    const [empty, setEmpty] = useState(false);
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -31,6 +32,7 @@ const Discussion = ({ discussions }) => {
     };
 
     const handleChange = (prop) => (event) => {
+        setEmpty(false);
         setValues({ ...values, [prop]: event.target.value });
     };
 
@@ -38,10 +40,19 @@ const Discussion = ({ discussions }) => {
         e.preventDefault()
         setLoading(true);
         setTimeout(() => {
+            // Validate 
+            if (values.title.length == 0 || values.description.length == 0) {
+                setEmpty(true);
+                setLoading(false);
+                return;
+            }
             // Add new discussion
             values.date = getCurrentDate();
             console.log('> Add discussion ' + JSON.stringify(values));
             discussions.push(values);
+            // Reset values
+            setValues({ ...values, title: '' });
+            setValues({ ...values, description: '' });
             // Close the modal
             setOpen(false);
             // Stop loading
@@ -70,9 +81,11 @@ const Discussion = ({ discussions }) => {
                             justifyContent="space-between"
                             alignItems="center"
                         >
-                            {/* <Grid item><ArrowRightRoundedIcon/></Grid> */}
-
-                            <Grid item><Typography className={classes.text}><b>{discussion.title}</b></Typography></Grid>
+                            <Grid item>
+                                <Typography className={classes.text}>
+                                <b>{`${discussion.title.substr(0, 1).toUpperCase()}${discussion.title.substr(1, discussion.title.length)}`}</b>
+                                </Typography>
+                            </Grid>
                             <Grid item className={clsx(classes.text, classes.date)}><Typography variant="body2">{discussion.date}</Typography></Grid>
                         </Grid>
                     </AccordionSummary>
@@ -102,6 +115,7 @@ const Discussion = ({ discussions }) => {
                                 label="Title" 
                                 name="title" 
                                 variant="outlined" 
+                                error={empty && values.title.length == 0}
                                 onChange={handleChange('title')}
                             />
                         </FormControl>
@@ -113,6 +127,7 @@ const Discussion = ({ discussions }) => {
                                 rows={10}
                                 name="description"
                                 variant="outlined"
+                                error={empty && values.description.length == 0}
                                 onChange={handleChange('description')}
                             />
                         </FormControl>
@@ -124,7 +139,7 @@ const Discussion = ({ discussions }) => {
                                 disableRipple
                                 className={classes.button}
                                 onClick={handleSubmit}
-                                disabled={loading}
+                                disabled={loading || empty}
                             >
                                 Add
                             </Button>
