@@ -29,7 +29,12 @@ const useStyles = makeStyles((theme) => ({
     width: '28.6%',
     borderRadius: '4px',
     marginTop: -30
-  }
+  },
+  alert: {
+    marginTop: 70,
+    width: '400px',
+    margin: 'auto'
+}
 }));
 
 export { useStyles };

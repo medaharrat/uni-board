@@ -11,7 +11,7 @@ const palette = {
     dark_blue2: '#1c2657',
     light_blue: '#32507a',
     light_blue2: '#5a89a5',
-    light_gray :'#d7d7d7',
+    light_gray :'#fdfdfd',
 
     //faculty of Humanities
     dark_red: '#5d1222',
@@ -63,6 +63,7 @@ const palette = {
   },
   borders: {
     light: '#e5e5e5',
+    dark: '#9b9b9b',
     dark_blue: '#170b36'
   },
   button: {
@@ -70,6 +71,12 @@ const palette = {
     red: "#7B1B1B",
     gray :'#3b3b3b',
     blue: "#0B2244"
+  },
+  comment: {
+    c1: "#e5d7c6",
+    c2: "#bcbdb9",
+    c3: "#bbc8cf",
+    c4: "#bfd7bd",
   }
  
 };

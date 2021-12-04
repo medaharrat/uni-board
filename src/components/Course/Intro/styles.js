@@ -9,11 +9,11 @@ const useStyles = makeStyles({
     width: '100',
   },
   title: {
-    fontWeight: 300
-
+    fontWeight: 300,
+    color: palette.text.dark_blue,
   },  
   description: {
-    color: palette.text.secondary,
+    color: palette.text.light_blue,
   },
 });
 

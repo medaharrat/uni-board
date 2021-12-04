@@ -5,42 +5,50 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
+import PictureAsPdfRoundedIcon from '@material-ui/icons/PictureAsPdfRounded';
+import GetAppRoundedIcon from '@material-ui/icons/GetAppRounded';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import { useStyles } from "./styles";
 import Delete from "@material-ui/icons/Delete";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const Comment = ({ title, student, date, color, handleDelete }) => {
-    const commentStyles = { color };
-    const classes = useStyles(commentStyles);
-  
+const File = ({ title, color }) => {
+    const fileStyles = { color };
+    const classes = useStyles(fileStyles);
+
     return (
         <Grid item>
             <Card className={classes.comment}>
-                <CardHeader
-                    avatar={<Avatar>{student.name[0]}</Avatar>}
-                    title={student && student.name}
-                    subheader={date}
-                />
+
                 <CardContent>
+                    { /* <Typography gutterBottom>{props.title}</Typography> */}
                     <Typography variant="body2" component="p">
-                        {`${title.substr(0, 1).toUpperCase()}${title.substr(1, title.length)}`}
+                        {title}
                     </Typography>
+                  <PictureAsPdfRoundedIcon className={classes.pdf}/>
                 </CardContent>
                 <CardActions
                     style={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                    {/* <IconButton aria-label="like" >
-                        <FavoriteBorderRoundedIcon className={classes.icon} />
-                    </IconButton> */}
-                    <IconButton onClick={handleDelete}>
+                    <IconButton aria-label="like" >
+                        <GetAppRoundedIcon className={classes.icon} />
+                        {/* <IconButton>
                         <Delete id="delete-button" color="disabled" />
-                    </IconButton>
-                </CardActions>
+                    </IconButton> */}
 
+                        <a
+                            href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            download
+                        >
+                            Click to download
+                        </a>
+                    </IconButton>
+
+                </CardActions>
             </Card>
         </Grid>
     );
 }
 
-export default Comment;
+export default File;
