@@ -1,6 +1,7 @@
+GET http://localhost:8080/users HTTP/1.1
 
 
-POST 8080-white-slug-2vphg0pw.ws-eu21.gitpod.io/users/create HTTP/1.1
+POST http://localhost:8080/users/create HTTP/1.1
 content-type: application/json
 {
     "firstName": "Admin",

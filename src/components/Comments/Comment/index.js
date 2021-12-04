@@ -18,7 +18,7 @@ const Comment = ({ title, student, date, color, handleDelete }) => {
         <Grid item>
             <Card className={classes.comment}>
                 <CardHeader
-                    avatar={<Avatar>{student.name[0]}</Avatar>}
+                    avatar={<Avatar>{student && student.name[0]}</Avatar>}
                     title={student && student.name}
                     subheader={date}
                 />

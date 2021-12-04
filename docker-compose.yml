@@ -14,15 +14,10 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data/
     ports:
-      - "5432:5432"  # delete this for release versions
-  client:
-    image: client
-    build: .
-    ports:
-      - "3000:3000"
+      - "5432:5432"
 volumes:
   database-data:
 networks:
   default:
     external:
-      name: external-network
+      name: uniboard-network

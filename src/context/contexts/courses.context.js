@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { CourseReducer, initialState } from '../reducers/auth.courses';
+import { CourseReducer, initialState } from '../reducers/courses.reducer';
 
 // Create context
 const CourseStateContext = createContext();
@@ -24,7 +24,7 @@ export function useCourseDispatch() {
   return context;
 }
 
-// Authentification Provider
+// Courses Provider
 export const CoursesProvider = ({ children }) => {
   const [courses, dispatch] = useReducer(CourseReducer, initialState);
  
