@@ -1,7 +1,7 @@
-const ROOT_URL = 'https://localhost:8080/discussions'; // API Link
+const ROOT_URL = 'http://localhost:8080/course/'; // API Link
 
 // Get all discussions
-export async function getDiscussions(dispatch, payload) {
+export async function getDiscussions(id, dispatch) {
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -10,10 +10,10 @@ export async function getDiscussions(dispatch, payload) {
    
     try {
       dispatch({ type: 'REQUEST' });
-      let response = await fetch(`${ROOT_URL}`, requestOptions);
+      let response = await fetch(`${ROOT_URL}/${id}/discussions_list`, requestOptions);
       let data = await response.json();
    
-      if (data.comments) {
+      if (data.discussions) {
         dispatch({ type: 'GEt_DISCUSSIONS_SUCCESS', payload: data });
         return data
       }

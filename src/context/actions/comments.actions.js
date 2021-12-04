@@ -1,4 +1,4 @@
-const ROOT_URL = 'https://localhost:8080/comments'; // API Link
+const ROOT_URL = 'http://localhost:8080/comments'; // API Link
 
 // Get all comments
 export async function getComments(dispatch, payload) {

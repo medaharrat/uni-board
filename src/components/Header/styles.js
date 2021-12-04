@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   switch: {
     top: '35%',
-    right: 0
+    right: 0,
   },
   zoomIndex: {
     top: '90%',

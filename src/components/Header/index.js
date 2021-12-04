@@ -4,9 +4,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Tooltip from '@material-ui/core/Tooltip';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Link from '@material-ui/core/Link';
 import { useAuthState, logout, useAuthDispatch } from '../../context';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
@@ -16,6 +13,7 @@ import clsx from  'clsx';
 const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
   const router = useRouter();
+  const [selectedFaculty, setSelectedFaculty] = useState({});
   const faculties = [
     {name: "Faculty of Informatics", path: "/ik", abreviation: "IK"},
     {name: "Faculty of Sciences", path: "/ttk", abreviation: "TTK"},
@@ -36,6 +34,12 @@ const Header = ({ title, zoomIndex }) => {
     setTimeout(() => {
       alert('You\'re about to log out!');
     }, 1000)
+  }
+
+  // Toggle between faculties
+  const toggleFaculty = (faculty) => {
+    //setSelectedFaculty(faculty)
+    console.log(`switched to : ${faculty.abreviation}`);
   }
 
   return (
@@ -127,15 +131,13 @@ const Header = ({ title, zoomIndex }) => {
           <Grid className={ clsx(classes.container, classes.switch) }>
             {faculties.map((faculty) => (
             <Grid item key={faculty.abreviation}>
-              <Link href={faculty.path} className={classes.textBtn}>
-              <Bar vertical>
+              <Bar vertical >
                 <Tooltip title={faculty.name} placement="left" arrow>
                   <Typography className={ classes.textBtnContent }>
                     {faculty.abreviation}
                   </Typography>
                 </Tooltip>
               </Bar>
-              </Link>
             </Grid>
             ))}
           </Grid>
