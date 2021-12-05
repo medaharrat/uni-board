@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useStyles } from './styles';
-import { login, useAuthState, useAuthDispatch } from '../../context';
+import { loginUser, useAuthState, useAuthDispatch } from '../../context';
 import { 
   Button, TextField, InputAdornment, FormControl,
   Grid, Container, LinearProgress 
@@ -19,13 +19,8 @@ const Login = () => {
     password: '',
   });
 
-  const credentials = {
-    neptun: 'ABCDE',
-    password: 'admin123'
-  }
-
-  // Get the dispatch method from the useDispatch custom hook
   const dispatch = useAuthDispatch()
+  const { loading, error } = useAuthState();
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -35,22 +30,25 @@ const Login = () => {
     e.preventDefault()
     try { 
       // login action makes the request and handles all the neccessary state changes
-      /* let response = await login(dispatch, values) 
-      if (!response.user) return*/
       setProgress('indeterminate')
       setTimeout(
         () => {
-          if (values.neptun == credentials.neptun && values.password == credentials.password) {
-            router.push('/')
-            setTimeout(
-              () => {
-                setProgress('determinate')
-              }, 1000
-            )
-          } else {
-            setAlert({...alert, title: "Invalid username or password."})
-            setProgress('determinate')
-          }
+          loginUser(dispatch, values)
+          .then((res) => {
+            if (!res) {
+              setAlert({...alert, title: "Invalid username or password."})
+              setProgress('determinate')
+            }
+            else {
+              console.log(`> Welcome ${res}`)
+              router.push('/')
+              setTimeout(
+                () => {
+                  setProgress('determinate')
+                }, 1000
+              )
+            }
+          })
         }, 2000
       )
       } catch (error) {

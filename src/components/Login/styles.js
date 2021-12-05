@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   progress: {
     position: 'absolute',
-    width: '28.6%',
+    width: '550px',
     borderRadius: '4px',
     marginTop: -30
   },

@@ -13,7 +13,6 @@ import clsx from  'clsx';
 const Header = ({ title, zoomIndex }) => {
   const classes = useStyles();
   const router = useRouter();
-  const [selectedFaculty, setSelectedFaculty] = useState({});
   const faculties = [
     {name: "Faculty of Informatics", path: "/ik", abreviation: "IK"},
     {name: "Faculty of Sciences", path: "/ttk", abreviation: "TTK"},
@@ -28,18 +27,14 @@ const Header = ({ title, zoomIndex }) => {
   // Log out
   const handleLogout = () => {
     // Call the logout action
-    // logout(dispatch) 
-    // Navigate on logout
-    router.push('/login')
-    setTimeout(() => {
-      alert('You\'re about to log out!');
-    }, 1000)
-  }
-
-  // Toggle between faculties
-  const toggleFaculty = (faculty) => {
-    //setSelectedFaculty(faculty)
-    console.log(`switched to : ${faculty.abreviation}`);
+    logout(dispatch) 
+    .then((res) => {
+      // Navigate on logout
+      router.push('/login')
+      setTimeout(() => {
+        alert('Successfully logged out!');
+      }, 1000)
+    })
   }
 
   return (
