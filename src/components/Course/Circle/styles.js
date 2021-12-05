@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
     margin: 20,
     backgroundColor: palette.background.light_gray,
     borderRadius: 15,
-    borderWidth: 2
+    borderWidth: 2,
+    maxWidth: 899
   },  
   divider: {
     margin: theme.spacing(2),

@@ -25,7 +25,7 @@ export function useDiscussionDispatch() {
 }
 
 // Discussions Provider
-export const DiscussionProvider = ({ children }) => {
+export const DiscussionsProvider = ({ children }) => {
   const [discussions, dispatch] = useReducer(DiscussionsReducer, initialState);
  
   return (

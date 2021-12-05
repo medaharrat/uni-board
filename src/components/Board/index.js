@@ -20,7 +20,7 @@ const Board = () => {
     const { courses, loading } = useCourseState();
     const courseDispatch = useCourseDispatch();
 
-    console.log(JSON.stringify(courses))
+    console.log(courses)
 
     useEffect(() => {
         ScrollZoom($('#container'), 4, 0.7, setScale)

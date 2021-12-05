@@ -1,9 +1,9 @@
 import React from "react";
 import CommentsWrapper from "./CommentsWrapper";
 
-const Comments = ({ comments }) => {
+const Comments = ({ course_id, discussion_id, comments }) => {
     return (
-        <CommentsWrapper comments={comments} />
+        <CommentsWrapper course_id={course_id} discussion_id={discussion_id} comments={comments} />
     );
 }
 

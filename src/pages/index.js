@@ -1,7 +1,7 @@
 import React from "react";
 import { NoSsr } from '@material-ui/core';
 import Board from "../components/Board";
-import { AuthProvider, CoursesProvider } from "../context";
+import { AuthProvider, CoursesProvider, DiscussionsProvider, CommentsProvider} from "../context";
 
 const Index = () => {
 
@@ -9,7 +9,11 @@ const Index = () => {
     <NoSsr>
       <AuthProvider>
         <CoursesProvider>
-          <Board />
+          <DiscussionsProvider>
+            <CommentsProvider>
+              <Board />
+            </CommentsProvider>
+          </DiscussionsProvider>
         </CoursesProvider>
       </AuthProvider>
     </NoSsr>

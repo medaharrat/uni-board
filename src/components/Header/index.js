@@ -127,7 +127,7 @@ const Header = ({ title, zoomIndex }) => {
             </Grid>
           </Grid>
 
-          { /* Switch Faculties */ }
+          { /* Switch Faculties 
           <Grid className={ clsx(classes.container, classes.switch) }>
             {faculties.map((faculty) => (
             <Grid item key={faculty.abreviation}>
@@ -141,6 +141,7 @@ const Header = ({ title, zoomIndex }) => {
             </Grid>
             ))}
           </Grid>
+          */ }
         </Grid> 
       </Grid>
     </div>

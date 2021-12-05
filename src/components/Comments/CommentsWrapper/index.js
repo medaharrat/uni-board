@@ -8,9 +8,11 @@ import { useStyles } from "./styles";
 import AddCommentIcon from '@material-ui/icons/AddComment';
 import clsx from 'clsx';
 import { getCurrentDate } from '../../../utils/currentDate';
+import { useCommentDispatch, addComment, deleteComment } from '../../../context';
 
-const CommentsWrapper = ({ comments }) => {
+const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
     const classes = useStyles();
+    const dispatch = useCommentDispatch();
     const [comments_, setComments] = useState(comments);
     const [open, setOpen] = useState(false);
     const [empty, setEmpty] = useState(false);
@@ -18,17 +20,9 @@ const CommentsWrapper = ({ comments }) => {
     const [values, setValues] = useState({
         comment: "", 
         student: {}, 
-        course: {}, 
         date: "",
         color: "#e5d7c6"
     })
-    const students = [{name: 'Josh'}, {name: 'Ahmad'}, {name: 'Sandra'}, {name: 'Emma'}];
-    const courses = [
-        {title: 'Interactive Media Design'}, 
-        {title: 'Software Technology'}, 
-        {title: 'Machine Learning'}, 
-        {title: 'Foundations of Cyber Security'}
-    ];
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -43,9 +37,11 @@ const CommentsWrapper = ({ comments }) => {
         setLoading(true);
         setTimeout(() => {
             // Generate dummy student and course
+            values.id = comments.length > 0 ? comments[comments.length - 1].id + 1 : 1;
+            values.course_id = course_id;
+            values.discussion_id = discussion_id;
             values.date = getCurrentDate();
-            values.student = students[Math.floor(Math.random()*students.length)];
-            values.course = courses[Math.floor(Math.random()*courses.length)];
+            values.student = {name: "Mohamed"}
             // Validate
             if (values.comment.length == 0){
                 setEmpty(true);
@@ -54,6 +50,7 @@ const CommentsWrapper = ({ comments }) => {
                 setEmpty(false)
                 // Add new comment
                 console.log('> Add comment ' + JSON.stringify(values));
+                addComment(values, dispatch)
                 comments_.push(values);
                 // Reset values
                 setValues({ ...values, comment: '' });
@@ -83,6 +80,7 @@ const CommentsWrapper = ({ comments }) => {
                             key={comment.comment}
                             handleDelete={() => {
                                 setTimeout(() => {
+                                    deleteComment(comment ,dispatch)
                                     setComments(
                                         comments_.filter((com) => com.comment !== comment.comment)
                                     )

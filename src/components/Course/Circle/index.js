@@ -6,25 +6,33 @@ import Discussions from "../../Discussion";
 import FileGroups from "../../FileGroup";
 import Done from '@material-ui/icons/Done';
 import clsx from "clsx";
+import { register, unregister, useCourseDispatch } from "../../../context";
 
 const Circle = ({ course }) => {
     const classes = useStyles();
     const [registered, setRegistered] = useState(course.registered);
     const [loading, setLoading] = useState(false);
-
+    const dispatch = useCourseDispatch();
+    
     const handleClick = (e) => {
         e.preventDefault()
         setLoading(true);
         setTimeout(() => {
-            course.registered = course.registered === 1 ? 0 : 1;
-            setRegistered(course.registered)
+            if (course.registered) {
+                unregister(course.id, dispatch)
+                setRegistered(false)
+                console.log(`> Unregister to course ${course.name}`)
+            } else {
+                register(course.id, dispatch)
+                setRegistered(true)
+                console.log(`> Register to course ${course.name}`)
+            }
             setLoading(false);
         }, 1000)
     }
 
     return (
         <Box components="div" className={classes.box}>
-            <Grid>
                 <Grid item xs={12}>
                     <Intro course={course} />
                     { /*Action buttons*/ }
@@ -44,7 +52,6 @@ const Circle = ({ course }) => {
                     {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                     </Grid>
                 </Grid>
-            </Grid>
 
             {/* <Divider light className={classes.divider}/> */}
             { /*Discussions*/ }

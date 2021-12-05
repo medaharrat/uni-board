@@ -1,5 +1,4 @@
 import React from "react";
-import { useStyles } from "./styles";
 import CourseCircle from "./Circle";
 
 const Course = ({ course }) => {

@@ -8,10 +8,12 @@ import Comments from "../Comments";
 import MessageRoundedIcon from '@material-ui/icons/MessageRounded';
 // import { useDiscussionsDispatch } from '../../context';
 import { getCurrentDate } from '../../utils/currentDate';
+import { useDiscussionDispatch, addDiscussion } from '../../context';
 import clsx from "clsx";
 
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
+    const dispatch = useDiscussionDispatch();
     const [open, setOpen] = useState(false);
     const [empty, setEmpty] = useState(false);
     const [values, setValues] = useState({
@@ -35,6 +37,7 @@ const Discussion = ({ discussions }) => {
         setEmpty(false);
         setValues({ ...values, [prop]: event.target.value });
     };
+    //localStorage.removeItem("courses")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -47,8 +50,12 @@ const Discussion = ({ discussions }) => {
                 return;
             }
             // Add new discussion
+            let id = discussions[discussions.length - 1].id
+            values.id = id + 1
             values.date = getCurrentDate();
-            console.log('> Add discussion ' + JSON.stringify(values));
+            values.course_id = discussions[0].course_id
+            
+            addDiscussion(values.course_id, values, dispatch);
             discussions.push(values);
             // Reset values
             setValues({ ...values, title: '' });
@@ -61,7 +68,7 @@ const Discussion = ({ discussions }) => {
     }
 
     return (
-        <Box>
+        <Box >
             <Grid
                 container
                 direction="row"
@@ -73,7 +80,7 @@ const Discussion = ({ discussions }) => {
             </Grid>
 
             {discussions.map((discussion, i) => (
-                <Accordion className={classes.accordion} square expanded={expanded === `panel${i}`} onChange={handlePanelChange(`panel${i}`)} key={discussion.id}>
+                <Accordion key={i} className={classes.accordion} square expanded={expanded === `panel${i}`} onChange={handlePanelChange(`panel${i}`)}>
                     <AccordionSummary aria-controls="panel-content" id="panel-header">
                         <Grid
                             container
@@ -90,7 +97,7 @@ const Discussion = ({ discussions }) => {
                         </Grid>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Comments comments={discussion.comments} />
+                        <Comments course_id={discussion.course_id} discussion_id={discussion.id} comments={discussion.comments} />
                     </AccordionDetails>
                 </Accordion>
             ))}

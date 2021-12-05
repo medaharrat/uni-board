@@ -13,7 +13,7 @@ export const initialState = {
           ...initialState,
           loading: true
         };
-      case "GEt_DISCUSSIONS_SUCCESS":
+      case "GET_DISCUSSIONS_SUCCESS":
         return {
           ...initialState,
           discussions: action.payload.discussions,
@@ -22,7 +22,6 @@ export const initialState = {
       case "ADD_DISCUSSION_SUCCESS":
         return {
           ...initialState,
-          discussion: action.payload.discussion,
           loading: false
         };
       case "DELETE_SUCCESS":

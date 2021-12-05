@@ -13,7 +13,7 @@ export const initialState = {
           ...initialState,
           loading: true
         };
-      case "GEt_COMMENTS_SUCCESS":
+      case "GET_COMMENTS_SUCCESS":
         return {
           ...initialState,
           comments: action.payload.comments,
@@ -22,10 +22,9 @@ export const initialState = {
       case "ADD_COMMENT_SUCCESS":
         return {
           ...initialState,
-          comment: action.payload.comment,
           loading: false
         };
-      case "DELETE_SUCCESS":
+      case "DELETE_COMMENT_SUCCESS":
         return {
           ...initialState,
           loading: false

@@ -26,7 +26,7 @@ export async function getComments(dispatch, payload) {
 }
 
 // Add a new comment
-export async function addComment(dispatch, payload) {
+export async function addComment(payload, dispatch) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -35,15 +35,28 @@ export async function addComment(dispatch, payload) {
  
   try {
     dispatch({ type: 'REQUEST' });
-    let response = await fetch(`${ROOT_URL}/create`, requestOptions);
+    /*let response = await fetch(`${ROOT_URL}/create`, requestOptions);
     let data = await response.json();
  
     if (data.course) {
       dispatch({ type: 'ADD_COMMENT_SUCCESS', payload: data });
       return data
-    }
+    }*/
+    let courses = JSON.parse(localStorage.getItem('courses'))
+    courses.map((course) => {
+      if (course.id === payload.course_id) {
+        course.discussions.map((discussion) => {
+          if (discussion.id === payload.discussion_id) {
+            discussion.comments.push(payload)
+          }
+        })
+        localStorage.setItem('courses', JSON.stringify(courses));
+        dispatch({ type: 'ADD_COMMENT_SUCCESS' });
+        return;
+      }
+    })
  
-    dispatch({ type: 'ERROR', error: data.errors });
+    dispatch({ type: 'ERROR', error: 'Something went wrong' });
     return;
   } catch (error) {
     dispatch({ type: 'ERROR', error: error });
@@ -51,7 +64,7 @@ export async function addComment(dispatch, payload) {
 }
 
 // Delete a comment
-export async function deleteComment(dispatch, payload) {
+export async function deleteComment(payload, dispatch) {
     const requestOptions = {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -60,13 +73,26 @@ export async function deleteComment(dispatch, payload) {
    
     try {
       dispatch({ type: 'REQUEST' });
-      let response = await fetch(`${ROOT_URL}/delete`, requestOptions);
+      /*let response = await fetch(`${ROOT_URL}/delete`, requestOptions);
       let data = await response.json();
    
       if (data) {
         dispatch({ type: 'DELETE_SUCCESS', payload: data });
         return data
-      }
+      }*/
+      let courses = JSON.parse(localStorage.getItem('courses'))
+      courses.map((course) => {
+        if (course.id === payload.course_id) {
+          course.discussions.map((discussion) => {
+            if (discussion.id === payload.discussion_id) {
+              discussion.comments = discussion.comments.filter((com) => com.id !== payload.id)
+            }
+          })
+          localStorage.setItem('courses', JSON.stringify(courses));
+          dispatch({ type: 'DELETE_COMMENT_SUCCESS' });
+          return;
+        }
+      })
    
       dispatch({ type: 'ERROR', error: data.errors });
       return;

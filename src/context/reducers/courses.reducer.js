@@ -1,4 +1,3 @@
-
 export const initialState = {
   courses: [],
   loading: false,
@@ -21,12 +20,7 @@ export const CourseReducer = (initialState, action) => {
     case "REGISTER_SUCCESS":
       return {
         ...initialState,
-        course: action.payload.course,
-        loading: false
-      };
-    case "DELETE_SUCCESS":
-      return {
-        ...initialState,
+        courses: action.payload, //Can't perform a React state update
         loading: false
       };
     case "ERROR":

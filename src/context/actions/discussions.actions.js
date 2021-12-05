@@ -26,7 +26,7 @@ export async function getDiscussions(id, dispatch) {
 }
 
 // Add a new discussion
-export async function addDiscussions(dispatch, payload) {
+export async function addDiscussion(courseId, payload, dispatch) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -35,15 +35,24 @@ export async function addDiscussions(dispatch, payload) {
  
   try {
     dispatch({ type: 'REQUEST' });
-    let response = await fetch(`${ROOT_URL}/create`, requestOptions);
+    /*let response = await fetch(`${ROOT_URL}/create`, requestOptions);
     let data = await response.json();
  
     if (data.course) {
       dispatch({ type: 'ADD_DISCUSSION_SUCCESS', payload: data });
       return data
-    }
+    }*/
+    let courses = JSON.parse(localStorage.getItem('courses'))
+    courses.map((course) => {
+      if (course.id === courseId) {
+        course.discussions.push(payload);
+        localStorage.setItem('courses', JSON.stringify(courses));
+        dispatch({ type: 'ADD_DISCUSSION_SUCCESS' });
+        return;
+      }
+    })
  
-    dispatch({ type: 'ERROR', error: data.errors });
+    dispatch({ type: 'ERROR', error: 'Something went wrong.' });
     return;
   } catch (error) {
     dispatch({ type: 'ERROR', error: error });
