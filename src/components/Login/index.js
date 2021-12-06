@@ -40,7 +40,6 @@ const Login = () => {
               setProgress('determinate')
             }
             else {
-              console.log(`> Welcome ${res}`)
               router.push('/')
               setTimeout(
                 () => {

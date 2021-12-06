@@ -1,4 +1,3 @@
-const ROOT_URL = 'https://secret-hamlet-03431.herokuapp.com'; // API Link
 const AUTH = {
   neptun: 'ABCDE',
   password: 'admin123'
@@ -25,10 +24,11 @@ export async function loginUser(dispatch, payload) {
       console.log("verified")
       let user = {
         neptun: payload.neptun,
-        name: 'Justin Atlas'
+        name: 'Justin Atlas',
+        courses: [1, 3]
       }
-      dispatch({ type: 'LOGIN_SUCCESS', payload: user });
       localStorage.setItem('user', JSON.stringify(user));
+      dispatch({ type: 'LOGIN_SUCCESS', payload: user });
       return user;
     }
 

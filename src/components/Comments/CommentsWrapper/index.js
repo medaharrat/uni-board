@@ -8,11 +8,13 @@ import { useStyles } from "./styles";
 import AddCommentIcon from '@material-ui/icons/AddComment';
 import clsx from 'clsx';
 import { getCurrentDate } from '../../../utils/currentDate';
-import { useCommentDispatch, addComment, deleteComment } from '../../../context';
+import { useCommentDispatch, addComment, deleteComment, useCourseState } from '../../../context';
 
 const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
     const classes = useStyles();
     const dispatch = useCommentDispatch();
+    const { courses } = useCourseState();
+    const user = JSON.parse( localStorage.getItem('user') );
     const [comments_, setComments] = useState(comments);
     const [open, setOpen] = useState(false);
     const [empty, setEmpty] = useState(false);
@@ -23,7 +25,6 @@ const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
         date: "",
         color: "#e5d7c6"
     })
-
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -41,7 +42,7 @@ const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
             values.course_id = course_id;
             values.discussion_id = discussion_id;
             values.date = getCurrentDate();
-            values.student = {name: "Mohamed"}
+            values.student = user ? user : {name: "Unknown"}
             // Validate
             if (values.comment.length == 0){
                 setEmpty(true);
@@ -62,6 +63,16 @@ const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
         }, 1000)
     }
 
+    const getCurrentCourse = () => {
+        let course = {}
+        courses.map((c) => {
+            if (course_id == c.id){
+                course = c
+            }
+        })
+        return course
+    }
+
     return (
         <Grid
             container
@@ -77,6 +88,7 @@ const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
                             student={comment.student}
                             date={comment.date}
                             color={comment.color}
+                            course={comment.course_id}
                             key={comment.comment}
                             handleDelete={() => {
                                 setTimeout(() => {
@@ -88,10 +100,13 @@ const CommentsWrapper = ({ course_id, discussion_id, comments }) => {
                             }}
                         />
                     ))}
-                    <div className={classes.placeholder}>
-                        <AddCommentIcon className={classes.plus} onClick={handleOpen}/>
-                    </div>
-                </> : (
+
+                    {getCurrentCourse().registered && (
+                        <div className={classes.placeholder}>
+                            <AddCommentIcon className={classes.plus} onClick={handleOpen}/>
+                        </div>
+                    )}
+                </> : getCurrentCourse().registered && (
                     <Typography variant="body2">
                         There is no comment for this discussion, add one
                         {' '} 

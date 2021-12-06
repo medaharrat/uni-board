@@ -13,7 +13,8 @@ import Delete from "@material-ui/icons/Delete";
 const Comment = ({ title, student, date, color, handleDelete }) => {
     const commentStyles = { color };
     const classes = useStyles(commentStyles);
-  
+    const user = JSON.parse( localStorage.getItem('user') );
+
     return (
         <Grid item>
             <Card className={classes.comment}>
@@ -30,12 +31,14 @@ const Comment = ({ title, student, date, color, handleDelete }) => {
                 <CardActions
                     style={{ display: "flex", justifyContent: "flex-end" }}
                 >
-                    {/* <IconButton aria-label="like" >
-                        <FavoriteBorderRoundedIcon className={classes.icon} />
-                    </IconButton> */}
-                    <IconButton onClick={handleDelete}>
-                        <Delete id="delete-button" color="disabled" />
-                    </IconButton>
+                    {
+                        (user.name == student.name) && (
+                            <IconButton onClick={handleDelete}>
+                                <Delete id="delete-button" color="disabled" />
+                            </IconButton>
+                        )
+                    }
+
                 </CardActions>
 
             </Card>

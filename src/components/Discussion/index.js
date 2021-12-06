@@ -8,12 +8,13 @@ import Comments from "../Comments";
 import MessageRoundedIcon from '@material-ui/icons/MessageRounded';
 // import { useDiscussionsDispatch } from '../../context';
 import { getCurrentDate } from '../../utils/currentDate';
-import { useDiscussionDispatch, addDiscussion } from '../../context';
+import { useDiscussionDispatch, addDiscussion, useCourseState } from '../../context';
 import clsx from "clsx";
 
 const Discussion = ({ discussions }) => {
     const [expanded, setExpanded] = useState(false);
     const dispatch = useDiscussionDispatch();
+    const { courses } = useCourseState();
     const [open, setOpen] = useState(false);
     const [empty, setEmpty] = useState(false);
     const [values, setValues] = useState({
@@ -37,6 +38,16 @@ const Discussion = ({ discussions }) => {
         setEmpty(false);
         setValues({ ...values, [prop]: event.target.value });
     };
+
+    const getCurrentCourse = () => {
+        let course = {}
+        courses.map((c) => {
+            if (discussions && discussions[0].course_id == c.id){
+                course = c
+            }
+        })
+        return course
+    }
     //localStorage.removeItem("courses")
 
     const handleSubmit = (e) => {
@@ -101,10 +112,11 @@ const Discussion = ({ discussions }) => {
                     </AccordionDetails>
                 </Accordion>
             ))}
-            <div className={classes.newDiscussion} onClick={handleOpen}>
-                <Typography> Add new discussion </Typography>
-            </div>
-
+            {getCurrentCourse().registered && (
+                <div className={classes.newDiscussion} onClick={handleOpen}>
+                    <Typography> Add new discussion </Typography>
+                </div>
+            )}
             <Modal
                 open={open}
                 onClose={handleClose}

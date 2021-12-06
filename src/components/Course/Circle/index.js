@@ -3,7 +3,6 @@ import { useStyles } from './styles';
 import { Box, CircularProgress, Grid, Button } from "@material-ui/core";
 import Intro from "../Intro";
 import Discussions from "../../Discussion";
-import FileGroups from "../../FileGroup";
 import Done from '@material-ui/icons/Done';
 import clsx from "clsx";
 import { register, unregister, useCourseDispatch } from "../../../context";
