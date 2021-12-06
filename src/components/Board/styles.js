@@ -6,6 +6,10 @@ const useStyles = makeStyles({
     height: '100vh',
     margin: 0, padding: 0,
     backgroundColor: palette.background.light,
+    backgroundImage: 'url("./elte.png")',
+    backgroundPosition: '50% 3%',
+    backgroundSize: '150px',
+    backgroundRepeat: 'no-repeat'
   },
   content: {
     position: 'fixed',

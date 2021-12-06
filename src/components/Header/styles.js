@@ -17,8 +17,11 @@ const useStyles = makeStyles((theme) => ({
   zoomIndex: {
     top: '90%',
     right: 0,
+    width: 70,
+    textAlign: 'center',
     fontWeight: 600,
     fontSize: 14,
+    opacity: .9
   },
   iconBtn: {
     backgroundColor: 'transparent !important',
@@ -26,12 +29,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
   },
   textBtn: {
-    height: 20, width: 20,
     color: palette.text.primary,
     fontWeight: 600,
     fontSize: 14,
     textDecoration: 'none !important',
-    textAlign: 'center'
   },
   textBtnContent: {
     fontWeight: 600,
@@ -40,6 +41,15 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fill: palette.text.primary,
   },
+  menu: {
+    marginTop: 50
+  },
+  barrier: {
+    position: 'absolute',
+    borderRight: `1px solid ${palette.text.secondary}`,
+    height: '25px',
+    transform: 'translate(35px, -27px)',
+  }
 }));
 
 export { useStyles };

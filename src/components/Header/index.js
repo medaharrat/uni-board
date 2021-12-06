@@ -2,28 +2,31 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import AppsIcon from '@material-ui/icons/Apps';
+import WebAssetIcon from '@material-ui/icons/WebAsset';
 import Tooltip from '@material-ui/core/Tooltip';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 import { useAuthState, logout, useAuthDispatch } from '../../context';
 import { useStyles } from './styles';
 import { useRouter } from 'next/router';
 import Bar from './Bar';
 import clsx from  'clsx';
 
-const Header = ({ title, zoomIndex }) => {
+const Header = ({ title, zoomIndex, gridView, toggleMode }) => {
   const classes = useStyles();
   const router = useRouter();
-  const faculties = [
+  const [anchorEl, setAnchorEl] = useState(null);
+  
+  /*const faculties = [
     {name: "Faculty of Informatics", path: "/ik", abreviation: "IK"},
     {name: "Faculty of Sciences", path: "/ttk", abreviation: "TTK"},
     {name: "Faculty of Economics", path: "/gtk", abreviation: "GTK"},
-  ]
+  ]*/
   
   // Read dispatch method from context
   const dispatch = useAuthDispatch() 
-  // Read user details from context
-  const userDetails = useAuthState() 
-
   // Log out
   const handleLogout = () => {
     // Call the logout action
@@ -36,6 +39,16 @@ const Header = ({ title, zoomIndex }) => {
       }, 1000)
     })
   }
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const goToAbout = () => router.push('/about')
 
   return (
     <div>
@@ -58,57 +71,50 @@ const Header = ({ title, zoomIndex }) => {
               </Tooltip >| Uniboard { title }  
             </Typography>
           </Bar>
-          
-          { /* The Tools Bar 
-          <Grid className={ clsx(classes.container, classes.tools) }>
-            <Grid item>
-              <Bar vertical>
-                <Tooltip title="Text" placement="right" arrow>
-                  <IconButton disableRipple className={classes.iconBtn} color="primary">
-                    <TextFieldsIcon className={classes.icon} />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Comment" placement="right" arrow>
-                  <IconButton disableRipple className={classes.iconBtn} color="primary">
-                    <CommentIcon className={classes.icon} />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="More actions" placement="right" arrow>
-                  <IconButton disableRipple className={classes.iconBtn} color="primary">
-                    <MoreHorizIcon className={classes.icon} />
-                  </IconButton>
-                </Tooltip>
-              </Bar>
-            </Grid>
-          </Grid>
-          */ }
         </Grid>
 
         <Grid item>
           <Bar>
-            {/* 
-            <Tooltip title="Notifications" placement="bottom" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <NotificationsIcon className={classes.icon} />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Settings" placement="bottom" arrow>
-              <IconButton disableRipple className={classes.iconBtn} color="primary">
-                <SettingsIcon className={classes.icon} />
-              </IconButton>
-            </Tooltip>
-            */}
-            <Tooltip title="Logout" placement="bottom" arrow>
+            <div>
               <IconButton 
                 disableRipple 
                 className={classes.iconBtn} 
                 color="primary"
                 aria-controls="primary-search-account-menu"
-                onClick={handleLogout}
+                onClick={toggleMode}
               >
-                <ExitToAppIcon className={classes.icon} />
+                {!gridView ? (<WebAssetIcon className={classes.icon} />) : (<AppsIcon className={classes.icon} />)}
               </IconButton>
-            </Tooltip>
+              <div className={classes.barrier} />
+              <IconButton 
+                disableRipple 
+                className={classes.iconBtn} 
+                color="primary"
+                aria-controls="primary-search-account-menu"
+                onClick={handleMenu}
+              >
+                <AccountCircle className={classes.icon} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                open={Boolean(anchorEl)}
+                className={classes.menu}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={goToAbout}>About</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </Menu>
+            </div>
           </Bar>
 
           { /* Zoom index */ }

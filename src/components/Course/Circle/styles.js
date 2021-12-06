@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     marginTop: 5,
   },
+  alert: {
+    position: 'fixed',
+    zIndex: 99,
+    bottom: 20,
+    left: 20
+  },
 }));
 
 export { useStyles };
